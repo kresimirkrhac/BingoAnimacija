@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { DrawComponent } from './draw/draw.component';
 import { ResultsComponent } from './results/results.component';
 import { IntroComponent } from './intro/intro.component';
+import { ServiceService } from './service.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { IntroComponent } from './intro/intro.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

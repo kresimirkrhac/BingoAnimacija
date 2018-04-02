@@ -9,6 +9,7 @@
     color: white;
     height: 100vh;
     width: 100vw;
+    overflow:hidden;
 }
 .row3col {
     display: grid;
@@ -56,7 +57,7 @@ img {
     background-image: url(../../assets/images/machine_title.png), url(../../assets/images/machine_top.png), url(../../assets/images/machine_bottom.png);
     background-position: center, center, center;
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: contain;
+    background-size: contain, contain, contain;
 }
 
 #ball01, #ball02, #ball03, #ball04, #ball05 {
@@ -153,6 +154,10 @@ img {
     background: linear-gradient(180deg, rgba(64,64,64,1) 0, rgba(16,16,16,1) 100%);
   }
 
+  #imgDw, #imgEx {
+      margin-left: 0.22vw;
+      margin-top: 0.22vw;
+  }
   #imgEx {
       transform: translateY(-100%);
   }

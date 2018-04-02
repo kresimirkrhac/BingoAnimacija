@@ -3,23 +3,31 @@ import {
 } from '@angular/animations';
 
 export const fadeInTrigger = trigger('fadeIn', [
-  transition(':enter', [
-    query('.ball', style({ opacity: 0, transform: 'scale(0)' })),
-    query('.ball', [
-      stagger(2000, [
-        animate('2000ms 1000ms ease-out', keyframes([
-          style({
-            opacity: 1,
-            transform: 'scale(1.25)',
-            offset: 0.25
-          }),
-          style({
-            opacity: 1,
-            transform: 'scale(1)',
-            offset: 1
-          })
-        ]))
-      ])
-    ])
-  ])
+  state('iv', style({ // invisible 
+    transform: 'scale(0)',
+    opacity: 0
+  })),
+  state('vis', style({ // visible
+    transform: 'scale(1)',
+    opacity: 1
+  })),
+  transition('iv => vis',
+    animate('500ms ease-out', keyframes([
+      style({
+        opacity: 0.9,
+        transform: 'scale(1.25)',
+        offset: 0.6
+      }),
+      style({
+        opacity: 1,
+        transform: 'scale(0.9)',
+        offset: 0.9
+      }),
+      style({
+        opacity: 1,
+        transform: 'scale(1.05)',
+        offset: 1
+      })
+    ]))
+  )
 ]);
