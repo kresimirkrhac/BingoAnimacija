@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceService {
   drawQue: string[] = [];
-  secToDraw: number = 288;
+  secToDraw: number = 300;
   roundNr: number = 255;
 
   constructor() { }

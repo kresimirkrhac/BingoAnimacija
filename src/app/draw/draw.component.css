@@ -14,7 +14,7 @@
 .row3col {
     display: grid;
     grid-template-columns: 2fr 1.5fr 1.55fr;
-    height: 10vh;
+    height: 6vw;
     margin: 0 5%;
 }
 .row3col > div > p {
@@ -25,17 +25,17 @@
     transform: translateY(-50%);
 }
 #quotedesc, #event {
-    font-size: 2.5vh;
+    font-size: 1.7vw;
 }
 #event {
     text-align: center;
 }
 .containter {
     display: grid;
-    grid-template-columns: 4.3vw repeat(5, 13vw);
-    grid-template-rows: repeat(9,4.3vw);
-    grid-column-gap: 4.14vw;
-    grid-row-gap: 2vh;
+    grid-template-columns: 4vw repeat(5, 13vw);
+    grid-template-rows: repeat(9,4vw);
+    grid-column-gap: 4.2vw;
+    grid-row-gap: 1vw;
     margin: 0 5%;
 }
 
@@ -109,10 +109,10 @@ img {
 
 .field {
     width: 13vw;
-    height: 4.33vw;
+    height: 4vw;
     display: grid;
-    grid-template-columns: calc(13vw - 4.33vw) 4.33vw;
-    -webkit-border-radius: 3vw / 50%;
+    grid-template-columns: calc(13vw - 4vw) 4vw;
+    -webkit-border-radius: 2.16vw / 50%;
     border-radius: 2.16vw / 50%;
     background: -webkit-linear-gradient(-90deg, rgba(64,64,64,1) 0, rgba(16,16,16,1) 100%);
     background: -moz-linear-gradient(180deg, rgba(64,64,64,1) 0, rgba(16,16,16,1) 100%);
@@ -121,10 +121,10 @@ img {
     
   .content {
     position: relative;
-    left: 0.36vw;
-    top: 0.36vw;
-    width: calc(13vw - 0.72vw);
-    height: 3.61vw;
+    left: 0.335vw;
+    top: 0.335vw;
+    width: calc(13vw - 0.67vw);
+    height: 3.33vw;
     -webkit-border-radius: 1.8vw / 50%;
     border-radius: 1.8vw / 50%;
     color: white;
@@ -132,8 +132,8 @@ img {
     font-size: 2.16vw;
     font-weight: bold;
     text-align: right;
-    line-height: 4vw;
-    padding-right: 4.66vw; 
+    line-height: 3.33vw;
+    padding-right: 4.33vw; 
     background: -webkit-linear-gradient(-90deg, rgba(16,16,16,1) 0, rgba(64,64,64,1) 100%);
     background: -moz-linear-gradient(180deg, rgba(16,16,16,1) 0, rgba(64,64,64,1) 100%);
     background: linear-gradient(180deg, rgba(16,16,16,1) 0, rgba(64,64,64,1) 100%);
@@ -142,11 +142,11 @@ img {
   .button {
     position: relative;
     top: 0;
-    right: 0.36vw;
+    right: 0.335vw;
     bottom: 0;
     left: 0;
-    width: 4.33vw;
-    height: 4.33vw;
+    width: 4vw;
+    height: 4vw;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background: -webkit-linear-gradient(-90deg, rgba(64,64,64,1) 0, rgba(16,16,16,1) 100%);

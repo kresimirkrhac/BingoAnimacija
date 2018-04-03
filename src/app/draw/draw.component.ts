@@ -43,7 +43,7 @@ export class DrawComponent implements OnInit, OnDestroy {
     this.drawFrame = "25";
     this.explFrame="25";
     this.ballDraw = this.ballExpl = this.drawQue[0];
-    var drawSec = Observable.interval(1950).take(nrBallsToDraw);
+    var drawSec = Observable.interval(3000).take(nrBallsToDraw);
     this.drawSub = drawSec.subscribe(
       (second: number) => {
         this.ballDraw = this.drawQue[(nrBalls-nrBallsToDraw)+second];
@@ -57,7 +57,7 @@ export class DrawComponent implements OnInit, OnDestroy {
           this.drawExpl = "explode";
           this.drawFrame = "25";
           this.explode();
-        }, 1660)
+        }, 2600)
       }
     );
   }
