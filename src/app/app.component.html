@@ -1,1 +1,3 @@
-<router-outlet></router-outlet>
+<div [@routeState]="routeState(routerOutlet)" id="route">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>

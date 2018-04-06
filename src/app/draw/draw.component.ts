@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { fadeInTrigger } from './animations';
+import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { Subscription } from 'rxjs/Rx';
 import { ServiceService } from '../service.service';
+import { fadeInTrigger } from './animations';
 
 @Component({
   selector: 'app-draw',
@@ -30,36 +30,47 @@ export class DrawComponent implements OnInit, OnDestroy {
     const nrBalls = 35;
     this.service.Init();
     this.drawQue = this.service.getdrawQue();
-    const secToDraw = this.service.getSecToDraw();
-    this.roundNr = this.service.getRoundNr();
-    var nrBallsToDraw = Math.floor(nrBalls - (299 - secToDraw) / 2);
-    var i;
-    for ( i = 0; i < nrBalls - nrBallsToDraw; i++)
-      this.fadeInStat.push('vis')
-    for( ; i < nrBalls; i++)
-      this.fadeInStat.push("iv");
-
+    var secToDraw = this.service.getSecToDraw();
+    console.log(secToDraw);  
     this.drawExpl = "explode";
     this.drawFrame = "25";
     this.explFrame="25";
-    this.ballDraw = this.ballExpl = this.drawQue[0];
-    var drawSec = Observable.interval(3000).take(nrBallsToDraw);
-    this.drawSub = drawSec.subscribe(
-      (second: number) => {
-        this.ballDraw = this.drawQue[(nrBalls-nrBallsToDraw)+second];
-        // console.log(`ball ${(nrBalls-nrBallsToDraw)+second+1} ${Date.now() % 100000}` );
-        this.drawExpl = "draw";
-        this.drawFrame = "00";
-        this.draw();
-        setTimeout(() => {
-          this.ballExpl = this.ballDraw;
-          this.fadeInStat[(nrBalls-nrBallsToDraw)+second] = "vis";
-          this.drawExpl = "explode";
-          this.drawFrame = "25";
-          this.explode();
-        }, 2600)
-      }
-    );
+    if (secToDraw <= 2 || secToDraw > 195) {
+      if (secToDraw <= 2)
+        secToDraw = 300;
+      this.roundNr = this.service.getRoundNr();
+      var nrBallsToDraw = Math.floor(nrBalls - (299 - secToDraw) / 2);
+      var i;
+      for ( i = 0; i < nrBalls - nrBallsToDraw; i++)
+        this.fadeInStat.push('vis')
+      for( ; i < nrBalls; i++)
+        this.fadeInStat.push("iv");
+
+      this.ballDraw = this.ballExpl = this.drawQue[0];
+      var drawSec = Observable.interval(3000).take(nrBallsToDraw);
+      this.drawSub = drawSec.subscribe(
+        (second: number) => {
+          this.ballDraw = this.drawQue[(nrBalls-nrBallsToDraw)+second];
+          console.log(`ball ${(nrBalls-nrBallsToDraw)+second+1} ${Date.now() % 100000}` );
+          this.drawExpl = "draw";
+          this.drawFrame = "00";
+          this.draw();
+          setTimeout(() => {
+            this.ballExpl = this.ballDraw;
+            this.fadeInStat[(nrBalls-nrBallsToDraw)+second] = "vis";
+            this.drawExpl = "explode";
+            this.drawFrame = "25";
+            this.explode();
+          }, 2600)
+        }
+      );
+    }
+    else {
+      this.roundNr = 0;
+      this.ballDraw = this.ballExpl = "01";
+      for ( i = 0; i < nrBalls; i++)
+        this.fadeInStat.push("iv");
+    }
   }
 
   ngOnDestroy() {

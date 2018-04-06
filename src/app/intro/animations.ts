@@ -2,14 +2,18 @@ import {
   trigger,  state,  style,  transition,  animate,  keyframes,  query,  stagger, group
 } from '@angular/animations';
 
-export const fadeInTrigger = trigger('fadeIn', [
-  transition(':enter', [
-    query('img', style({ opacity: 0, transform: 'translateX(15vw)' })),
-    query('span', style({ opacity: 0, transform: 'translateX(100%)'})),
+export const fromLeftTriger = trigger('fromLeft', [
+  state('iv', style({ // invisible 
+    transform: 'translateX(-20vw)',
+  })),
+  state('vis', style({ // visible
+    transform: 'translateX(0)',
+  })),
+  transition('iv => vis', [
     group([
       query('img', [
         stagger(80, [
-          animate('200ms 1000ms ease-out', keyframes([
+          animate('200ms 0ms ease-out', keyframes([
             style({
               opacity: 1,
               transform: 'translateX(7.5vw)',
@@ -30,7 +34,7 @@ export const fadeInTrigger = trigger('fadeIn', [
       ]),
       query('span', [
         stagger(80, [
-          animate('400ms 1200ms ease-out', keyframes([
+          animate('400ms 200ms ease-out', keyframes([
             style({
               opacity: 1,
               transform: 'translateX(50%)',

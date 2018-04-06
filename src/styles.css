@@ -2,4 +2,13 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-image: radial-gradient(farthest-corner, rgba(221,115,44,1) 0, rgba(66,11,1,1) 100%);
+    height: 100vh;
+    width: 100vw;
+}
+#route {
+    position: relative;
+}
+#route>* {
+    display: block;
 }

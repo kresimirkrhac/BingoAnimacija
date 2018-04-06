@@ -9,6 +9,7 @@ import { DrawComponent } from './draw/draw.component';
 import { ResultsComponent } from './results/results.component';
 import { IntroComponent } from './intro/intro.component';
 import { ServiceService } from './service.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ServiceService } from './service.service';
     AppComponent,
     DrawComponent,
     ResultsComponent,
-    IntroComponent
+    IntroComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,8 @@ export class ServiceService {
   constructor() { }
 
   Init() {
-    for( var i = 15; i <= 49; i++) {
+    for( var j = 0; j <= 35; j++) {
+      var i = Math.floor(Math.random()*49+1);
       if( i <= 9)
         this.drawQue.push(`0${i}`);
       else
@@ -22,6 +23,13 @@ export class ServiceService {
   }
 
   getSecToDraw() {
+    var time = new Date();
+    var minute = time.getMinutes();
+    var second = time.getSeconds();
+    var minRemain = (minute%10 < 5) ? (5 - (minute%10) - 1) : (10 - (minute%10) - 1);
+    this.secToDraw = minRemain * 60 + (60 - second);
+    console.log(`time = ${time}`);
+    console.log(`minute = ${minute} second = ${second} minRemain = ${minRemain} => ${this.secToDraw}`);
     return this.secToDraw;
   }
 
