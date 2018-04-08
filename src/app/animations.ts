@@ -13,13 +13,13 @@ export const routeStateTrigger = trigger('routeState', [
     //   right: 0
     // })),
     group([
-      // query(':leave',[
-      //   // style({ transform: 'translateX(0)' }),
-      //   animate('1000ms ease-out', style({transform: 'translateX(-100%)'}))
-      // ], {optional: true}),
+      query(':leave',[
+        // style({ transform: 'translateX(0)' }),
+        animate('500ms ease-out', style({opacity: 0}))
+      ], {optional: true}),
       query(':enter', [
         style({ opacity: 0.1 }),
-        animate('1000ms ease-out',style({opacity: 1}))
+        animate('1000ms ease-in',style({opacity: 1}))
         // style({transform: 'translateX(-100%)'}),
         // animate('1000ms ease-out',style({transform: 'translateX(0)'}))
       ], {optional: true}),

@@ -1,3 +1,8 @@
+<nav>
+    <a routerLink="/intro" routerLinkActive="active">Intro</a>
+    <a routerLink="/draw" routerLinkActive="active">Draw</a>
+    <a routerLink="/results" routerLinkActive="active">Result</a>
+  </nav>
 <div [@routeState]="routeState(routerOutlet)" id="route">
     <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

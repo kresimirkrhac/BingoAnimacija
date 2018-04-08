@@ -9,6 +9,7 @@ export class ServiceService {
   constructor() { }
 
   Init() {
+    this.drawQue.length = 0;
     for( var j = 0; j <= 35; j++) {
       var i = Math.floor(Math.random()*49+1);
       if( i <= 9)

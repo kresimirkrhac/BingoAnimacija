@@ -28,7 +28,6 @@ export class DrawComponent implements OnInit, OnDestroy {
   
   ngOnInit() {
     const nrBalls = 35;
-    this.service.Init();
     this.drawQue = this.service.getdrawQue();
     var secToDraw = this.service.getSecToDraw();
     console.log(secToDraw);  
@@ -74,8 +73,11 @@ export class DrawComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.drawSub.unsubscribe();
+    if (this.drawSub)
+      this.drawSub.unsubscribe();
+    if (this.drawFrameSub)
     this.drawFrameSub.unsubscribe();
+    if (this.explFrameSub)
     this.explFrameSub.unsubscribe();
   }
 

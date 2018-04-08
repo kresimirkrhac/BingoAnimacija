@@ -15,7 +15,6 @@ export class ResultsComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
-    this.service.Init(); 
     this.drawQue = this.service.getdrawQue();
     this.roundNr = this.service.getRoundNr();
   }

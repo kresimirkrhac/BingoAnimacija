@@ -4,12 +4,32 @@ import {
 
 export const fadeInTrigger = trigger('fadeIn', [
   transition(':enter', [
+/*    query('.field',[ 
+      // style({
+      //   opacity: 0
+      // }),
+      stagger(80,[
+        style({opacity: 0}),
+        animate('200ms ease-in',style({
+          opacity: 1
+        }))
+      ])
+    ]),*/
+
+    query('.field', style({ opacity: 0 })),
     query('img', style({ opacity: 0, transform: 'translateX(15vw)' })),
     query('span', style({ opacity: 0, transform: 'translateX(100%)'})),
     group([
+      query('.field',[
+        stagger(300,[
+          animate('800ms ease-in',style({
+            opacity: 1
+          }))
+        ])
+      ]),
       query('img', [
         stagger(80, [
-          animate('200ms 1000ms ease-out', keyframes([
+          animate('200ms 200ms ease-out', keyframes([
             style({
               opacity: 1,
               transform: 'translateX(7.5vw)',
@@ -30,7 +50,7 @@ export const fadeInTrigger = trigger('fadeIn', [
       ]),
       query('span', [
         stagger(80, [
-          animate('400ms 1200ms ease-out', keyframes([
+          animate('400ms 400ms ease-out', keyframes([
             style({
               opacity: 1,
               transform: 'translateX(50%)',
