@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { routeStateTrigger } from './animations';
 import { ServiceService } from './service.service';
+import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -9,38 +11,15 @@ import { ServiceService } from './service.service';
   styleUrls: ['./app.component.css'],
   animations: [routeStateTrigger]
 })
-export class AppComponent implements OnInit{
-
-  constructor(private router: Router, private service: ServiceService) {}
+export class AppComponent implements OnInit {
+  constructor(private service: ServiceService) {}
 
   ngOnInit() {
-    this.service.Init();
-    this.changeRoute();
-  }
-
-  changeRoute() {
-   
-      var secToDraw = this.service.getSecToDraw();
-      console.log(`secToDraw => ${secToDraw}`);
-      if (secToDraw > 195) {
-        this.router.navigateByUrl('/draw');
-        // setTimeout(() => {this.router.navigateByUrl('/results')},secToDraw-195);
-      }
-      else if (secToDraw > 150) {
-        this.router.navigateByUrl('/results');
-        // setTimeout(() => {this.router.navigateByUrl('/intro')},secToDraw-195);
-      }
-      else {
-        this.router.navigateByUrl('/intro');
-//        setTimeout(() => {this.router.navigateByUrl('/draw')},secToDraw);
-      }
+    this.service.init();
+    this.service.changeRoute();
   }
 
   routeState(outlet: RouterOutlet) {
-    const routeData = outlet.activatedRouteData['animation'];
-    if (!routeData) {
-      return 'introPage';
-    }
-    return routeData['page'];
+    return outlet.activatedRouteData['animation'] || 'introPage';
   }
 }

@@ -1,19 +1,24 @@
 import {
-  trigger,  state,  style,  transition,  animate,  keyframes,  query,  stagger, group
+  trigger,  state,  style,  transition,  animate,  keyframes,  query,  stagger, group, animation
 } from '@angular/animations';
 
-export const fromLeftTriger = trigger('fromLeft', [
-  state('iv', style({ // invisible 
-    transform: 'translateX(-20vw)',
-  })),
-  state('vis', style({ // visible
-    transform: 'translateX(0)',
-  })),
+export const fadeFromLeftAnimation = animation([
+  style({
+     opacity: '{{ from }}',
+     transform: 'translate({{ X,Y }})',
+  }),
+  animate('{{ duration }}', style({ 
+    opacity: '{{ to }}',
+    transform: 'translate( X,Y)'
+  }))
+], {params:{duration: '200ms ease-in', from: 0, to: 1, X: '-10vw',Y: '10vw'}})
+
+export const fadeInFirstTrigger = trigger('fadeInFirst', [
   transition('iv => vis', [
     group([
-      query('img', [
+      query('.first7 > img', [
         stagger(80, [
-          animate('200ms 0ms ease-out', keyframes([
+          animate('200ms 0ms ease', keyframes([
             style({
               opacity: 1,
               transform: 'translateX(7.5vw)',
@@ -31,7 +36,7 @@ export const fromLeftTriger = trigger('fromLeft', [
             })
           ]))
         ])
-      ]),
+      ], { optional: true, limit: 6 }),
       query('span', [
         stagger(80, [
           animate('400ms 200ms ease-out', keyframes([

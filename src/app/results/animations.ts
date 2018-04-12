@@ -4,18 +4,6 @@ import {
 
 export const fadeInTrigger = trigger('fadeIn', [
   transition(':enter', [
-/*    query('.field',[ 
-      // style({
-      //   opacity: 0
-      // }),
-      stagger(80,[
-        style({opacity: 0}),
-        animate('200ms ease-in',style({
-          opacity: 1
-        }))
-      ])
-    ]),*/
-
     query('.field', style({ opacity: 0 })),
     query('img', style({ opacity: 0, transform: 'translateX(15vw)' })),
     query('span', style({ opacity: 0, transform: 'translateX(100%)'})),

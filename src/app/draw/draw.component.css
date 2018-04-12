@@ -157,7 +157,8 @@ img {
   #imgDw, #imgEx {
       margin-left: 0.22vw;
       margin-top: 0.22vw;
+      transform: scale(1.4);
   }
   #imgEx {
-      transform: translateY(-100%);
+      transform: translateY(-102%);
   }

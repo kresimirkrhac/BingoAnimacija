@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { fadeInTrigger } from './animations';
 
@@ -15,8 +15,16 @@ export class ResultsComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
+    var secToDraw = this.service.getSecToDraw();
+    if (secToDraw > 195 || secToDraw < 150) {
+      this.service.changeRoute();
+    }
     this.drawQue = this.service.getdrawQue();
     this.roundNr = this.service.getRoundNr();
+    var secToWait = (secToDraw > 150) ? (secToDraw - 150) : 0;
+    setTimeout(() => {
+      this.service.changeRoute();
+    },secToWait*1000);
   }
 
 }

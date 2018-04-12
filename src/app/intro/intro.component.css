@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 :host {
-    position: absolute;
+    position: relative;
     background-image: radial-gradient(farthest-corner, rgba(221,115,44,1) 0, rgba(66,11,1,1) 100%);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
@@ -11,27 +11,119 @@
     width: 100vw;
     overflow:hidden;
 }
-#b01, #b02, #b03, #b04, #b05, #b06 {
+.row3col {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.55fr;
+    height: 6vw;
+    margin: 0 5%;
+}
+.row3col > div > p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#quotedesc, #event {
+    font-size: 1.7vw;
+}
+#event {
+    text-align: center;
+}
+.st7 {
     position: absolute;
     height: 4.5vw;
     width: 4.5vw;
+    left: 10vw;
+}
+.nd7 {
+    position: absolute;
+    height: 4.5vw;
+    width: 4.5vw;
+    left: 28vw;
+}
+.td7 {
+    position: absolute;
+    height: 4.5vw;
+    width: 4.5vw;
+    left: 46vw;
+}
+.th7 {
+    position: absolute;
+    height: 4.5vw;
+    width: 4.5vw;
+    left: 64vw;
+}
+.ff7 {
+    position: absolute;
+    height: 4.5vw;
+    width: 4.5vw;
+    left: 82vw;
+}
+#i01, #i08, #i15, #i22, #i29 {
+    top: 5vw;
+}
+#i02, #i09, #i16, #i23, #i30 {
+    top: 11vw;
+}
+#i03, #i10, #i17, #i24, #i31 {
+    top: 17vw;
+}
+#i04, #i11, #i18, #i25, #i32 {
+    top: 23vw;
+}
+#i05, #i12, #i19, #i26, #i33 {
+    top: 29vw;
+}
+#i06, #i13, #i20, #i27, #i34 {
+    top: 35vw;
+}
+#i07, #i14, #i21, #i28, #i35 {
+    top: 41vw;
+}
+.n1 {
+    position: absolute;
     left: 15vw;
+    font-size: 2vw;
 }
-#b01 {
-    top: 10vw;
+.n2 {
+    position: absolute;
+    left: 33vw;
+    font-size: 2vw;
 }
-#b02 {
-    top: 16vw;
+.n3 {
+    position: absolute;
+    left: 51vw;
+    font-size: 2vw;
 }
-#b03 {
-    top: 22vw;
+.n4 {
+    position: absolute;
+    left: 69vw;
+    font-size: 2vw;
 }
-#b04 {
-    top: 28vw;
+.n5 {
+    position: absolute;
+    left: 87vw;
+    font-size: 2vw;
 }
-#b05 {
-    top: 34vw;
+#n08, #n15, #n22, #n29 {
+    top: 3.2vw;
 }
-#b06 {
-    top: 40vw;
+#n09, #n16, #n23, #n30 {
+    top: 9.2vw;
+}
+#n10, #n17, #n24, #n31 {
+    top: 15.2vw;
+}
+#n11, #n18, #n25, #n32 {
+    top: 21.2vw;
+}
+#n12, #n19, #n26, #n33 {
+    top: 27.2vw;
+}
+#n06, #n13, #n20, #n27, #n34 {
+    top: 33.2vw;
+}
+#n07, #n14, #n21, #n28, #n35 {
+    top: 39.2vw;
 }

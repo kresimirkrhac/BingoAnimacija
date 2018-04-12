@@ -6,9 +6,3 @@ body {
     height: 100vh;
     width: 100vw;
 }
-#route {
-    position: relative;
-}
-#route>* {
-    display: block;
-}

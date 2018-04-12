@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ServiceService {
@@ -6,9 +7,9 @@ export class ServiceService {
   secToDraw: number = 300;
   roundNr: number = 255;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  Init() {
+  init() {
     this.drawQue.length = 0;
     for( var j = 0; j <= 35; j++) {
       var i = Math.floor(Math.random()*49+1);
@@ -36,5 +37,19 @@ export class ServiceService {
 
   getRoundNr() {
     return this.roundNr;
+  }
+
+  public changeRoute() {
+    var secToDraw = this.getSecToDraw();
+    console.log(`onChangeRoute sec ${secToDraw} ===> ${name}`);
+    if (secToDraw > 195 || secToDraw < 2) {
+      this.router.navigateByUrl('/draw');
+    }
+    else if (secToDraw > 150) {
+      this.router.navigateByUrl('/results');
+    }
+    else {
+      this.router.navigateByUrl('/intro');
+    }
   }
 }
