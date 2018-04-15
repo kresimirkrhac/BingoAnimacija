@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
 *  {
     box-sizing: border-box;
 }
@@ -107,23 +108,216 @@
     font-size: 2vw;
 }
 #n08, #n15, #n22, #n29 {
-    top: 3.2vw;
+    top: 4vw;
 }
 #n09, #n16, #n23, #n30 {
-    top: 9.2vw;
+    top: 10vw;
 }
 #n10, #n17, #n24, #n31 {
-    top: 15.2vw;
+    top: 16vw;
 }
 #n11, #n18, #n25, #n32 {
-    top: 21.2vw;
+    top: 22vw;
 }
 #n12, #n19, #n26, #n33 {
-    top: 27.2vw;
+    top: 28vw;
 }
 #n06, #n13, #n20, #n27, #n34 {
-    top: 33.2vw;
+    top: 34vw;
 }
 #n07, #n14, #n21, #n28, #n35 {
-    top: 39.2vw;
+    top: 40vw;
+}
+.messages {
+    display: grid;
+    grid-template-columns: 2fr 10fr 1.55fr;
+    font-family: 'Anton', sans-serif;
+}
+.middleColumn {
+    grid-column: 2;
+    text-align: center;
+}
+#firstMessageRow1 {
+    font-size: 3vw;
+}
+#firstMessageRow2 {
+    font-size: 3vw;
+}
+#firstMessageRow3 {
+    font-size: 9vw;
+}
+#firstMessageRow4 {
+    font-size: 9vw;
+}
+#firstMessageRow5 {
+    font-size: 3vw;
+}
+#secondMessageRow1 {
+    font-size: 3.5vw;
+}
+#secondMessageRow2 {
+    font-size: 3.5vw;
+}
+#secondMessageRow3 {
+    font-size: 6vw;
+}
+#secondMessageRow4 {
+    font-size: 10vw;
+}
+.Min {
+    display: grid;
+    grid-template-rows: 2.5fr 2fr 1fr;
+    grid-template-columns: 1.5fr 3fr;
+    width: 33vw;
+    height: 20vw;
+    position: fixed;
+    top: 30%;
+    left: 37%;
+    z-index: 1;
+    overflow: hidden;
+    border: 0.2vw solid rgba(255,255,255,1);
+    border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    background-image: radial-gradient(ellipse at right bottom, rgba(214,132,51,1) 0, rgba(242,67,39,1) 50%, rgba(125,44,37,1) 100%);
+    text-shadow: 0.2vw 0.2vw 0.1vw rgba(0,0,0,0.5);
+    transform: rotateZ(335deg);
+}
+.leftBlock {
+    grid-row: 1 / span 3;
+    align-self: center;
+    justify-self: center;
+    font-size: 15vw;
+}
+.minRow1 {
+    font-size: 6vw;
+}
+.minRow2 {
+    font-size: 5vw;
+}
+.minRow3 {
+    font-size: 2vw;
+}
+#thirdMessageRow1 {
+    font-size: 4vw;
+}
+#thirdMessageRow2 {
+    font-size: 6vw;
+}
+#thirdMessageRow3 {
+    font-size: 4vw;
+}
+#thirdMessageRow4 {
+    font-size: 5.5vw;
+}
+#fourthMessageRow1 {
+    font-size: 7.5vw;
+}
+#fourthMessageRow2 {
+    font-size: 4vw;
+}
+#fourthMessageRow3 {
+    font-size: 3vw;
+}
+#fourthMessageRow4 {
+    font-size: 4.5vw;
+}
+#fivethMessageRow1 {
+    font-size: 6vw;
+}
+#fivethMessageRow2 {
+    font-size: 3.5vw;
+}
+#fivethMessageRow3 {
+    font-size: 3.5vw;
+}
+#fivethMessageRow4 {
+    font-size: 9vw;
+}
+#sixthMessageRow1 {
+    font-size: 6vw;
+}
+#sixthMessageRow2 {
+    font-size: 6vw;
+}
+#sixthMessageRow3 {
+    font-size: 4vw;
+}
+#sixthMessageRow4 {
+    font-size: 6vw;
+}
+#seventhMessageRow1 {
+    font-size: 4vw;
+}
+#seventhMessageRow2 {
+    font-size: 2.5vw;
+}
+#seventhMessageRow3 {
+    font-size: 4vw;
+}
+#seventhMessageRow4 {
+    font-size: 2vw;
+}
+#seventhMessageRow5 {
+    font-size: 4vw;
+}
+#seventhMessageRow6 {
+    font-size: 6vw;
+}
+#eighthMessagesRow1 {
+    font-size: 4vw;
+}
+#eighthMessagesRow2 {
+    font-size: 3vw;
+}
+#eighthMessagesRow3 {
+    font-size: 3vw;
+}
+#eighthMessagesRow4 {
+    font-size: 3vw;
+}
+#eighthMessagesRow5 {
+    font-size: 3vw;
+}
+#Sec {
+    display: grid;
+    grid-template-rows: 1.8fr 2fr 1fr;
+    grid-template-columns: 1.5fr 3fr;
+    width: 35vw;
+    height: 20vw;
+    position: fixed;
+    top: 30%;
+    left: 37%;
+    z-index: 1;
+    overflow: hidden;
+    border: 0.2vw solid rgba(255,255,255,1);
+    border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    background-image: radial-gradient(ellipse at right bottom, rgba(214,132,51,1) 0, rgba(242,67,39,1) 50%, rgba(125,44,37,1) 100%);
+    text-shadow: 0.2vw 0.2vw 0.1vw rgba(0,0,0,0.5);
+    transform: rotateZ(335deg);
+}
+#secleftBlock {
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: center;
+    font-size: 15vw;
+}
+#secRow1 {
+    grid-row: 1;
+    grid-column: 2;
+    font-size: 4vw;
+}
+#secRow2 {
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 5vw;
+}
+#secRow3 {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+    align-self: center;
+    justify-self: center;
+    font-size: 2vw;
 }
