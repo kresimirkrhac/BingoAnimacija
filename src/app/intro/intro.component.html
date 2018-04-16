@@ -15,7 +15,7 @@
     <img id="i06" class="st7" src="./assets/images/06.png" [@fromLeftAnim]="imageStat[5]">
     <img id="i07" class="st7" src="./assets/images/07.png" [@fromLeftAnim]="imageStat[6]">
 </div>
-<div class="messages" *ngIf="firstMessages">
+<div class="messages" *ngIf="firstMessages" @firstMessages>
     <div class="middleColumn" id="firstMessageRow1">{{messages[0]}}</div>
     <div class="middleColumn" id="firstMessageRow2">{{messages[1]}}</div>
     <div class="middleColumn" id="firstMessageRow3">{{messages[2]}}</div>
@@ -144,4 +144,14 @@
     <div id="secRow1">{{messages[39]}}</div>
     <div id="secRow2">{{messages[37]}}</div>
     <div id="secRow3">{{messages[38]}}</div>
+</div>
+<div class="messages" *ngIf="clock">
+    <div id="clock-title"></div>
+    <div id="clock">{{secToDraw}}</div>
+</div>
+<div id="last" *ngIf="last">
+    <div id="lastRow1">{{messages[40]}}</div>
+    <div id="lastRow2">{{messages[41]}}</div>
+    <div id="lastRow3">{{messages[42]}}</div>
+    <div id="lastLeftBlock">{{messages[43]}}</div>
 </div>

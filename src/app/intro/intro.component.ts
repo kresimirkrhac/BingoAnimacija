@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { ServiceService } from '../service.service';
-import { fromLeftAnimTrigger } from './animations';
+import { fromLeftAnimTrigger, firstMessagesTrigger } from './animations';
 
 const introMessages = [
 /*  0 */  "Ai şanse să câştigi",
@@ -45,13 +45,20 @@ const introMessages = [
 /* 36 */  "MINUTE",
 /* 37 */  "RĂMASE",
 /* 38 */  "PȂNĂ LA EXTRAGERE",
-/* 39 */  "DE SECUNDE"
+/* 39 */  "DE SECUNDE",
+/* 40 */  "PLASAȚI",
+/* 41 */  "PARIURI",
+/* 42 */  "ACUM!",
+/* 43 */  "ULTIMELE"
 ];
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css'],
-  animations: [ fromLeftAnimTrigger ]
+  animations: [ 
+    fromLeftAnimTrigger,
+    firstMessagesTrigger
+   ]
 })
 export class IntroComponent implements OnInit {
   secToDraw: number;
@@ -71,6 +78,8 @@ export class IntroComponent implements OnInit {
   eighthMessages: boolean = false;
   oneMin: boolean = false;
   halfMin: boolean = false;
+  clock: boolean = false;
+  last: boolean = false;
 
   constructor(private service: ServiceService) { }
 
@@ -218,15 +227,32 @@ export class IntroComponent implements OnInit {
       case 29:
         if (this.canDoAction() == true) {
           console.log(`30 DE SECUNDE REMASE => ${this.secToDraw}`);
+          this.eighthMessages = false;          
           this.halfMin = true;
+          this.clock = true;
         }
         break;
-      case 23:
+      case 25:
+      case 24:
+        if (this.canDoAction() == true) {
+          console.log(`30 DE SECUNDE REMASE END=> ${this.secToDraw}`);
+          this.halfMin = false;
+        }
+        break;        
       case 22:
+      case 21:
         if (this.canDoAction() == true) {
           console.log(`PLASATI ULTIMATELE PARUIURI ACUM => ${this.secToDraw}`);
+          this.last = true;
         }
         break;
+        case 18:
+        case 17:
+          if (this.canDoAction() == true) {
+            console.log(`PLASATI ULTIMATELE PARUIURI ACUM END=> ${this.secToDraw}`);
+            this.last = false;
+          }
+          break;
     }
     // console.log(` anim this.secToDraw ${this.secToDraw} => ${Date.now() % 100000}`);
   }
