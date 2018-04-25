@@ -3,7 +3,20 @@ import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { ServiceService } from '../service.service';
-import { fromLeftAnimTrigger, firstMessagesTrigger } from './animations';
+import {  fromLeftAnimTrigger,
+          firstMessagesTrigger,
+          secondMessagesTrigger,
+          imagesTrigger,
+          minuteTrigger,
+          thirdhMessagesTrigger,
+          fourthMessagesTrigger,
+          fivethhMessagesTrigger,
+          sixthMessagesTrigger,
+          seventhMessagesTrigger,
+          eighthMessagesTrigger,
+          halfminuteTrigger,
+          lastTrigger
+        } from './animations';
 
 const introMessages = [
 /*  0 */  "Ai şanse să câştigi",
@@ -20,7 +33,7 @@ const introMessages = [
 /* 11 */  "SE EXTRAG",
 /* 12 */  "35 DE NUMERE DIN 49",
 /* 13 */  "BeSix",
-/* 14 */  "ESTE UN PARIU ÎN COTĂ FIXĂ",
+/* 14 */  "PARIU ÎN COTĂ FIXĂ",
 /* 15 */  "NUMĂRUL CÂŞTIGĂTORILOR",
 /* 16 */  "NU INFLUENŢEAZĂ SUMA CÂŞTIGATA",
 /* 17 */  "PARIUL SIMPLU",
@@ -49,7 +62,9 @@ const introMessages = [
 /* 40 */  "PLASAȚI",
 /* 41 */  "PARIURI",
 /* 42 */  "ACUM!",
-/* 43 */  "ULTIMELE"
+/* 43 */  "ULTIMELE",
+/* 44 */  "ESTE UN",
+/* 45 */  "MINUT"
 ];
 @Component({
   selector: 'app-intro',
@@ -57,7 +72,18 @@ const introMessages = [
   styleUrls: ['./intro.component.css'],
   animations: [ 
     fromLeftAnimTrigger,
-    firstMessagesTrigger
+    firstMessagesTrigger,
+    secondMessagesTrigger,
+    imagesTrigger,
+    minuteTrigger,
+    thirdhMessagesTrigger,
+    fourthMessagesTrigger,
+    fivethhMessagesTrigger,
+    sixthMessagesTrigger,
+    seventhMessagesTrigger,
+    eighthMessagesTrigger,
+    halfminuteTrigger,
+    lastTrigger
    ]
 })
 export class IntroComponent implements OnInit {
@@ -127,41 +153,45 @@ export class IntroComponent implements OnInit {
           this.firstMessages = true;
         }
         break;
-      case 145:
       case 144:
+      case 143:
         if (this.canDoAction() == true) {
           console.log(`COTA PARIULUI => ${this.secToDraw}`);
           this.fromLeftIn(i = 0,"fadeIn",6);
           this.firstMessages = false;
-          this.secondMessages = true;
+          setTimeout(() => {
+            this.secondMessages = true;
+          }, 440);
         }
         break;
-      case 138:
       case 137:
+      case 136:
         if (this.canDoAction() == true) {
           console.log(`* png => ${this.secToDraw}`);
           this.fromLeftIn(i = 0,"final",7);
           this.secondMessages = false;
-          this.images = true;
+          setTimeout(() => {
+            this.images = true;
+          }, 440);
         }
         break;
+      case 121:
       case 120:
-      case 119:
         if (this.canDoAction() == true) {
           console.log(`2 MINUTE RAMASE => ${this.secToDraw}`);
           this.fromLeftIn(i = 0,"final",7);
           this.twoMin = true;
         }
         break;
-      case 115:
-      case 110:
+      case 117:
+      case 116:
         if (this.canDoAction() == true) {
           console.log(`2 MINUTE RAMASE END => ${this.secToDraw}`);
           this.twoMin = false;
         }
         break;
+      case 96:
       case 95:
-      case 94:
         if (this.canDoAction() == true) {
           console.log(`SANSE DE CASTIG => ${this.secToDraw}`);
           this.fromLeftIn(i = 0,"exit",7);
@@ -177,54 +207,56 @@ export class IntroComponent implements OnInit {
           this.fourthMessages = true;
         }
         break;
-      case 85:
       case 84:
+      case 83:
         if (this.canDoAction() == true) {
           console.log(`PARIOU SIMPLU => ${this.secToDraw}`);
           this.fourthMessages = false;
           this.fivethMessages = true;
         }
         break;
-      case 80:
-      case 79:
+      case 78:
+      case 77:
         if (this.canDoAction() == true) {
           console.log(`MARESTE-TI => ${this.secToDraw}`);
           this.fivethMessages = false;
           this.sixthMessages = true;
         }
         break;
-      case 75:
-      case 74:
+      case 72:
+      case 71:
         if (this.canDoAction() == true) {
           console.log(`PARIOUL COMBINAT => ${this.secToDraw}`);
           this.sixthMessages = false;
-          this.seventhMessages = true;
+          setTimeout(() => {
+            this.seventhMessages = true;
+          }, 200);
         }
         break;
-      case 65:
       case 64:
+      case 63:
         if (this.canDoAction() == true) {
           console.log(`PARIOUL COMBINAT - VARIANTE POSIBLE => ${this.secToDraw}`);
           this.seventhMessages = false;
           this.eighthMessages = true;
         }
         break;
+      case 61:
       case 60:
-      case 59:
         if (this.canDoAction() == true) {
           console.log(`1 MINUT REMAS => ${this.secToDraw}`);
           this.oneMin = true; 
         }
+      break;
+      case 57:
+      case 56:
+        if (this.canDoAction() == true) {
+          console.log(`1 MINUT REMAS END=> ${this.secToDraw}`);
+          this.oneMin = false; 
+        }
         break;
-        case 55:
-        case 54:
-          if (this.canDoAction() == true) {
-            console.log(`1 MINUT REMAS END=> ${this.secToDraw}`);
-            this.oneMin = false; 
-          }
-          break;
+      case 31:
       case 30:
-      case 29:
         if (this.canDoAction() == true) {
           console.log(`30 DE SECUNDE REMASE => ${this.secToDraw}`);
           this.eighthMessages = false;          
@@ -232,8 +264,8 @@ export class IntroComponent implements OnInit {
           this.clock = true;
         }
         break;
-      case 25:
-      case 24:
+      case 27:
+      case 26:
         if (this.canDoAction() == true) {
           console.log(`30 DE SECUNDE REMASE END=> ${this.secToDraw}`);
           this.halfMin = false;
@@ -246,23 +278,30 @@ export class IntroComponent implements OnInit {
           this.last = true;
         }
         break;
-        case 18:
-        case 17:
-          if (this.canDoAction() == true) {
-            console.log(`PLASATI ULTIMATELE PARUIURI ACUM END=> ${this.secToDraw}`);
-            this.last = false;
-          }
-          break;
+      case 19:
+      case 18:
+        if (this.canDoAction() == true) {
+          console.log(`PLASATI ULTIMATELE PARUIURI ACUM END=> ${this.secToDraw}`);
+          this.last = false;
+        }
+        break;
     }
     // console.log(` anim this.secToDraw ${this.secToDraw} => ${Date.now() % 100000}`);
   }
 
   private fromLeftIn(index: number, state: string, count: number) {
-    setTimeout(() => {
-      this.imageStat[index] = state;
-      if (index < count - 1)
-        this.fromLeftIn(index+1,state, count);
-    }, 200);
+    if (state != "exit") {
+      setTimeout(() => {
+        this.imageStat[index] = state;
+        if (index < count - 1)
+          this.fromLeftIn(index + 1, state, count);
+      }, 200);
+    }
+    else {
+      for (var i = 0; i < count; i++) {
+        this.imageStat[i] = state;
+      }
+    }
   }
 
   private canDoAction(): boolean {

@@ -5,14 +5,11 @@
     box-sizing: border-box;
 }
 :host {
-    position: relative;
     background-image: radial-gradient(farthest-corner, rgba(221,115,44,1) 0, rgba(66,11,1,1) 100%);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color: white;
-    height: 100vh;
-    width: 100vw;
-    overflow:hidden;
+    overflow: hidden;
 }
 .row3col {
     display: grid;
@@ -63,26 +60,74 @@
     width: 4.5vw;
     left: 82vw;
 }
+#field1 {
+    position: absolute;
+    top: 36.5vw;
+    left: 9.5vw;
+    width: 16vw;
+    height: 12vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+#field2 {
+    position: absolute;
+    top: 6.5vw;
+    left: 27.5vw;
+    width: 16vw;
+    height: 42vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+#field3 {
+    position: absolute;
+    top: 6.5vw;
+    left: 45.5vw;
+    width: 16vw;
+    height: 42vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+#field4 {
+    position: absolute;
+    top: 6.5vw;
+    left: 63.5vw;
+    width: 16vw;
+    height: 42vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+#field5 {
+    position: absolute;
+    top: 6.5vw;
+    left: 81.5vw;
+    width: 16vw;
+    height: 42vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+#images {
+    overflow: hidden;
+}
 #i01, #i08, #i15, #i22, #i29 {
-    top: 5vw;
+    top: 7vw;
 }
 #i02, #i09, #i16, #i23, #i30 {
-    top: 11vw;
+    top: 13vw;
 }
 #i03, #i10, #i17, #i24, #i31 {
-    top: 17vw;
+    top: 19vw;
 }
 #i04, #i11, #i18, #i25, #i32 {
-    top: 23vw;
+    top: 25vw;
 }
 #i05, #i12, #i19, #i26, #i33 {
-    top: 29vw;
+    top: 31vw;
 }
 #i06, #i13, #i20, #i27, #i34 {
-    top: 35vw;
+    top: 37vw;
 }
 #i07, #i14, #i21, #i28, #i35 {
-    top: 41vw;
+    top: 43vw;
 }
 .n1 {
     position: absolute;
@@ -110,30 +155,40 @@
     font-size: 2vw;
 }
 #n08, #n15, #n22, #n29 {
-    top: 4vw;
+    top: 6vw;
 }
 #n09, #n16, #n23, #n30 {
-    top: 10vw;
+    top: 12vw;
 }
 #n10, #n17, #n24, #n31 {
-    top: 16vw;
+    top: 18vw;
 }
 #n11, #n18, #n25, #n32 {
-    top: 22vw;
+    top: 24vw;
 }
 #n12, #n19, #n26, #n33 {
-    top: 28vw;
+    top: 30vw;
 }
 #n06, #n13, #n20, #n27, #n34 {
-    top: 34vw;
+    top: 36vw;
 }
 #n07, #n14, #n21, #n28, #n35 {
-    top: 40vw;
+    top: 42vw;
 }
-.messages {
+.messages, .messagesZ {
     display: grid;
     grid-template-columns: 2fr 10fr 1.55fr;
     font-family: 'Anton', sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.messagesZ {
+    position: fixed;
+    top: 6vw;
+    left: 0;
+    z-index: 1;
+    height: calc(100% - 9vw);
 }
 .middleColumn {
     grid-column: 2;
@@ -155,18 +210,19 @@
     font-size: 3vw;
 }
 #secondMessageRow1 {
-    font-size: 3.5vw;
+    font-size: 4vw;
 }
 #secondMessageRow2 {
-    font-size: 3.5vw;
+    font-size: 4vw;
 }
 #secondMessageRow3 {
-    font-size: 6vw;
+    font-size: 7vw;
 }
 #secondMessageRow4 {
-    font-size: 10vw;
+    font-size: 11vw;
 }
-.Min {
+
+.minute {
     display: grid;
     grid-template-rows: 2.5fr 2fr 1fr;
     grid-template-columns: 1.5fr 3fr;
@@ -175,7 +231,7 @@
     position: fixed;
     top: 30%;
     left: 37%;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     border: 0.2vw solid rgba(255,255,255,1);
     border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
@@ -201,64 +257,105 @@
     font-size: 2vw;
 }
 #thirdMessageRow1 {
+    margin-top: 2vw;
     font-size: 4vw;
+    text-align: right;
+    width: 90%;
 }
 #thirdMessageRow2 {
-    font-size: 6vw;
+    font-size: 7vw;
+    text-align: right;
+    width: 90%;    
 }
 #thirdMessageRow3 {
+    margin-top: 3.5vw;
     font-size: 4vw;
+    width: 90%;
 }
 #thirdMessageRow4 {
-    font-size: 5.5vw;
+    font-size: 6.5vw;
+    text-align: right;
+    width: 90%;
 }
 #fourthMessageRow1 {
+    margin-top: 2vw;
     font-size: 7.5vw;
+    line-height: 7.5vw;
 }
 #fourthMessageRow2 {
-    font-size: 4vw;
+    vertical-align: super;
+    line-height: 3vw;
+    font-size: 3vw;
+    text-align: right;
+    width: 30%;
+    position: relative;
+    top: 1.5vw;
+    right: 1vw;
 }
 #fourthMessageRow3 {
-    font-size: 3vw;
+    font-size: 5vw;
+    text-align: left;
+    width: 60%;
 }
 #fourthMessageRow4 {
-    font-size: 4.5vw;
+    margin-top: 2.5vw;
+    font-size: 3.5vw;
+}
+#fourthMessageRow5 {
+    font-size: 5vw;
 }
 #fivethMessageRow1 {
-    font-size: 6vw;
+    font-size: 7vw;
+    line-height: 7vw;
+    margin-top: 4vw;
+    width: 80%;
 }
 #fivethMessageRow2 {
-    font-size: 3.5vw;
+    text-align: right;
+    font-size: 4vw;
+    width: 90%;
 }
 #fivethMessageRow3 {
-    font-size: 3.5vw;
+    font-size: 4vw;
+    margin-top: 3vw;
 }
 #fivethMessageRow4 {
-    font-size: 9vw;
+    font-size: 12vw;
+    line-height: 12vw;
 }
 #sixthMessageRow1 {
+    margin-top: 4vw;
     font-size: 6vw;
+    text-align: right;
+    width: 55%;
 }
 #sixthMessageRow2 {
     font-size: 6vw;
+    text-align: right;
+    width: 65%;
 }
 #sixthMessageRow3 {
     font-size: 4vw;
+    text-align: right;
+    width: 45%;
 }
 #sixthMessageRow4 {
     font-size: 6vw;
 }
 #seventhMessageRow1 {
     font-size: 4vw;
+    margin-top: 2vw;
 }
 #seventhMessageRow2 {
     font-size: 2.5vw;
+    margin-top: 2vw;
 }
 #seventhMessageRow3 {
     font-size: 4vw;
 }
 #seventhMessageRow4 {
     font-size: 2vw;
+    margin-top: 2vw;
 }
 #seventhMessageRow5 {
     font-size: 4vw;
@@ -267,6 +364,8 @@
     font-size: 6vw;
 }
 #eighthMessagesRow1 {
+    align-self: end;
+    margin-bottom: 2vw;
     font-size: 4vw;
 }
 #eighthMessagesRow2 {
@@ -281,7 +380,7 @@
 #eighthMessagesRow5 {
     font-size: 3vw;
 }
-#Sec {
+#second {
     display: grid;
     grid-template-rows: 1.8fr 2fr 1fr;
     grid-template-columns: 1.5fr 3fr;
@@ -290,7 +389,7 @@
     position: fixed;
     top: 30%;
     left: 37%;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     border: 0.2vw solid rgba(255,255,255,1);
     border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
@@ -331,6 +430,7 @@
     grid-column: 2;
     height: 8vw;
     margin-bottom: -3.5vw;
+    margin-top: 6vw;
     z-index: 1;
 }
 #clock {
@@ -356,7 +456,7 @@
     position: fixed;
     top: 27%;
     left: 42%;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     border: 0.2vw solid rgba(255,255,255,1);
     border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;

@@ -22,13 +22,18 @@
     <div class="middleColumn" id="firstMessageRow4">{{messages[3]}}</div>
     <div class="middleColumn" id="firstMessageRow5">{{messages[4]}}</div>
 </div>
-<div class="messages" *ngIf="secondMessages">
+<div class="messagesZ" *ngIf="secondMessages" @secondMessages>
     <div class="middleColumn" id="secondMessageRow1">{{messages[5]}}</div>
     <div class="middleColumn" id="secondMessageRow2">{{messages[6]}}</div>
     <div class="middleColumn" id="secondMessageRow3">{{messages[7]}}</div>
     <div class="middleColumn" id="secondMessageRow4">{{messages[8]}}</div>
 </div>
-<div *ngIf='images'>
+<div id="images" *ngIf='images' @images>
+    <div id="field1" class="field"></div>
+    <div id="field2" class="field"></div>
+    <div id="field3" class="field"></div>
+    <div id="field4" class="field"></div>
+    <div id="field5" class="field"></div>
     <img id="i08" class="nd7" src="./assets/images/08.png">
     <img id="i09" class="nd7" src="./assets/images/09.png">
     <img id="i10" class="nd7" src="./assets/images/10.png">
@@ -88,37 +93,44 @@
     <p id="n34" class="n5">2</p>
     <p id="n35" class="n5">1</p>
 </div>
-<div class="Min" *ngIf="twoMin">
+<div class="minute" *ngIf="twoMin" @minute>
     <div class="leftBlock">2</div>
     <div class="minRow1">{{messages[36]}}</div>
     <div class="minRow2">{{messages[37]}}</div>
     <div class="minRow3">{{messages[38]}}</div>
 </div>
-<div class="messages" *ngIf="thirdMessages">
+<div class="messages" *ngIf="thirdMessages" @thirdhMessages>
     <div class="middleColumn" id="thirdMessageRow1">{{messages[9]}}</div>
     <div class="middleColumn" id="thirdMessageRow2">{{messages[10]}}</div>
     <div class="middleColumn" id="thirdMessageRow3">{{messages[11]}}</div>
     <div class="middleColumn" id="thirdMessageRow4">{{messages[12]}}</div>
 </div>
-<div class="messages" *ngIf="fourthMessages">
+<div class="messagesZ" *ngIf="fourthMessages" @fourthMessages>
     <div class="middleColumn" id="fourthMessageRow1">{{messages[13]}}</div>
-    <div class="middleColumn" id="fourthMessageRow2">{{messages[14]}}</div>
-    <div class="middleColumn" id="fourthMessageRow3">{{messages[15]}}</div>
-    <div class="middleColumn" id="fourthMessageRow4">{{messages[16]}}</div>
+    <table class="middleColumn">
+        <tbody>
+            <tr>
+                <td id="fourthMessageRow2">{{messages[44]}}</td>
+                <td id="fourthMessageRow3">{{messages[14]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="middleColumn" id="fourthMessageRow4">{{messages[15]}}</div>
+    <div class="middleColumn" id="fourthMessageRow5">{{messages[16]}}</div>
 </div>
-<div class="messages" *ngIf="fivethMessages">
+<div class="messages" *ngIf="fivethMessages" @fivethhMessages>
     <div class="middleColumn" id="fivethMessageRow1">{{messages[17]}}</div>
     <div class="middleColumn" id="fivethMessageRow2">{{messages[18]}}</div>
     <div class="middleColumn" id="fivethMessageRow3">{{messages[19]}}</div>
     <div class="middleColumn" id="fivethMessageRow4">{{messages[20]}}</div>
 </div>
-<div class="messages" *ngIf="sixthMessages">
+<div class="messagesZ" *ngIf="sixthMessages" @sixthMessages>
     <div class="middleColumn" id="sixthMessageRow1">{{messages[21]}}</div>
     <div class="middleColumn" id="sixthMessageRow2">{{messages[22]}}</div>
     <div class="middleColumn" id="sixthMessageRow3">{{messages[23]}}</div>
     <div class="middleColumn" id="sixthMessageRow4">{{messages[24]}}</div>
 </div>
-<div class="messages" *ngIf="seventhMessages">
+<div class="messages" *ngIf="seventhMessages" @seventhMessages>
     <div class="middleColumn" id="seventhMessageRow1">{{messages[25]}}</div>
     <div class="middleColumn" id="seventhMessageRow2">{{messages[26]}}</div>
     <div class="middleColumn" id="seventhMessageRow3">{{messages[27]}}</div>
@@ -126,20 +138,22 @@
     <div class="middleColumn" id="seventhMessageRow5">{{messages[29]}}</div>
     <div class="middleColumn" id="seventhMessageRow6">{{messages[30]}}</div>
 </div>
-<div class="messages" *ngIf="eighthMessages">
+<div class="messagesZ" *ngIf="eighthMessages" @eighthMessages>
     <div class="middleColumn" id="eighthMessagesRow1">{{messages[31]}}</div>
-    <div class="middleColumn" id="eighthMessagesRow2">{{messages[32]}}</div>
-    <div class="middleColumn" id="eighthMessagesRow3">{{messages[33]}}</div>
-    <div class="middleColumn" id="eighthMessagesRow4">{{messages[34]}}</div>
-    <div class="middleColumn" id="eighthMessagesRow5">{{messages[35]}}</div>
+    <div class="middleColumn" id="eighthMessagesRow2">
+        {{messages[32]}}<br/>
+        {{messages[33]}}<br/>
+        {{messages[34]}}<br/>
+        {{messages[35]}}
+    </div>
 </div>
-<div class="Min" *ngIf="oneMin">
+<div class="minute" *ngIf="oneMin" @minute>
     <div class="leftBlock">1</div>
-    <div class="minRow1">{{messages[36]}}</div>
+    <div class="minRow1">{{messages[45]}}</div>
     <div class="minRow2">{{messages[37]}}</div>
     <div class="minRow3">{{messages[38]}}</div>
 </div>
-<div id="Sec" *ngIf="halfMin">
+<div id="second" *ngIf="halfMin" @halfminute>
     <div id="secleftBlock">30</div>
     <div id="secRow1">{{messages[39]}}</div>
     <div id="secRow2">{{messages[37]}}</div>
@@ -149,7 +163,7 @@
     <div id="clock-title"></div>
     <div id="clock">{{secToDraw}}</div>
 </div>
-<div id="last" *ngIf="last">
+<div id="last" *ngIf="last" @last>
     <div id="lastRow1">{{messages[40]}}</div>
     <div id="lastRow2">{{messages[41]}}</div>
     <div id="lastRow3">{{messages[42]}}</div>
