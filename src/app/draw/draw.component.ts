@@ -15,6 +15,7 @@ export class DrawComponent implements OnInit, OnDestroy {
   roundNr: number;
   drawQue: string[] = [];
   fadeInStat: string[] = [];
+  messages: string[] = [];
   ballDraw: string;
   ballExpl: string;
   drawFrame: string;
@@ -36,6 +37,7 @@ export class DrawComponent implements OnInit, OnDestroy {
       if (secToDraw < 2)
         secToDraw = 300;
 
+      this.messages = this.service.getMesagesHr();
       this.drawFrame = "25";
       this.explFrame = "25";
       this.drawExpl = "explode";

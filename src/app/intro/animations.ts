@@ -65,7 +65,7 @@ export const firstMessagesTrigger = trigger('firstMessages', [
         animate('1200ms 600ms', keyframes([
           style({
             opacity: 0.5,
-            transform: 'scale(0.2) rotate(-15deg)',
+            transform: 'scale(0.2) rotate(-20deg)',
             offset: 0
           }),
           style({
@@ -157,7 +157,7 @@ export const firstMessagesTrigger = trigger('firstMessages', [
   transition(':leave', [
     group([
       query('#firstMessageRow1,#firstMessageRow2,#firstMessageRow5', [
-        animate('400ms ease-out', keyframes([
+        animate('500ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(10vw,0)',
@@ -171,7 +171,7 @@ export const firstMessagesTrigger = trigger('firstMessages', [
         ]))
       ]),
       query('#firstMessageRow3,#firstMessageRow4', [
-        animate('400ms 100ms ease-out', keyframes([
+        animate('500ms 100ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(-10vw,0)',
@@ -198,7 +198,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
       animate('500ms 300ms', keyframes([
         style({
           opacity: 0.2,
-          transform: 'rotate(15deg)',
+          transform: 'rotate(35deg)',
           offset: 0
         }),
         style({
@@ -208,7 +208,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
         }),
         style({
           opacity: 1,
-          transform: 'rotate(-15deg)',
+          transform: 'rotate(-25deg)',
           offset: 0.5
         }),
         style({
@@ -222,7 +222,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
       animate('500ms 600ms', keyframes([
         style({
           opacity: 0.2,
-          transform: 'rotate(15deg)',
+          transform: 'rotate(35deg)',
           offset: 0
         }),
         style({
@@ -232,7 +232,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
         }),
         style({
           opacity: 1,
-          transform: 'rotate(-15deg)',
+          transform: 'rotate(-25deg)',
           offset: 0.5
         }),
         style({
@@ -246,7 +246,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
   transition(':leave', [
     group([
       query('#secondMessageRow1,#secondMessageRow2', [
-        animate('400ms ease-out', keyframes([
+        animate('500ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(0,-10vw)',
@@ -260,7 +260,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
         ]))
       ]),
       query('#secondMessageRow3,#secondMessageRow4', [
-        animate('400ms 100ms ease-out', keyframes([
+        animate('500ms 100ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(0,10vw)',
@@ -335,7 +335,7 @@ export const imagesTrigger = trigger('images', [
     ])
   ]),
   transition(':leave', [
-    animate('400ms ease-out', style({ opacity: 0}))
+    animate('500ms ease-out', style({ opacity: 0}))
   ])
 ]);
 
@@ -401,7 +401,7 @@ export const minuteTrigger = trigger('minute', [
     ])
   ]),
   transition(':leave', [
-    animate('400ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
+    animate('500ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
   ]),
 ]);
 
@@ -505,7 +505,7 @@ export const thirdhMessagesTrigger = trigger('thirdhMessages', [
   transition(':leave', [
     group([
       query('#thirdMessageRow2', [
-        animate('300ms ease-out', keyframes([
+        animate('500ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(10vw)',
@@ -519,7 +519,7 @@ export const thirdhMessagesTrigger = trigger('thirdhMessages', [
         ]))
       ]),
       query('#thirdMessageRow1', [
-        animate('300ms 50ms ease-out', keyframes([
+        animate('500ms 50ms ease-out', keyframes([
           style({
             opacity: 0.3,
             transform: 'translate(-10vw)',
@@ -571,14 +571,14 @@ export const fourthMessagesTrigger = trigger('fourthMessages', [
     query('#fourthMessageRow3', style({ opacity: 0, transform: 'translateX(10vw)' })),
     query('#fourthMessageRow4', style({ opacity: 0, transform: 'scale(0.3)' })),
     query('#fourthMessageRow5', style({ opacity: 0, transform: 'scale(1.4)' })),
-    query('#fourthMessageRow1', animate('240ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))),
-    query('#fourthMessageRow2,#fourthMessageRow3', animate('160ms 150ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))),
-    query('#fourthMessageRow4', animate('120ms 300ms ease-in', style({ opacity: 1, transform: 'scale(1)' }))),
-    query('#fourthMessageRow5', animate('240ms 350ms ease-in', style({ opacity: 1, transform: 'scale(1)' }))),
+    query('#fourthMessageRow1', animate('300ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))),
+    query('#fourthMessageRow2,#fourthMessageRow3', animate('240ms 150ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))),
+    query('#fourthMessageRow4', animate('250ms 300ms ease-in', style({ opacity: 1, transform: 'scale(1)' }))),
+    query('#fourthMessageRow5', animate('200ms 350ms ease-in', style({ opacity: 1, transform: 'scale(1)' }))),
   ]),
   transition(':leave', [
     query('.middleColumn',
-      animate('400ms ease-out',style({ opacity: 0 })))
+      animate('500ms ease-out',style({ opacity: 0 })))
   ])
 ])
 
@@ -613,14 +613,14 @@ export const sixthMessagesTrigger = trigger('sixthMessages', [
       query('#sixthMessageRow3', animate('240ms ease-in',style({ transform: 'translateX(5vw)' }))),
     ]),
     animate(80),
-    query('.middleColumn', stagger(40, [ animate(120) ]))
+    query('.middleColumn', stagger(120, [ animate(120) ]))
   ]),
   transition(':leave', [
     group([
-      query('#sixthMessageRow4', animate('120ms ease-out',style({ transform: 'translateY(4vw)', opacity: 0 }))),
-      query('#sixthMessageRow3', animate('160ms 40ms ease-out',style({ transform: 'translateY(8vw)', opacity: 0 }))),
-      query('#sixthMessageRow2', animate('200ms 80ms ease-out',style({ transform: 'translateY(17vw)', opacity: 0 }))),
-      query('#sixthMessageRow1', animate('240ms 120ms ease-out',style({ transform: 'translateY(25vw)', opacity: 0 }))),
+      query('#sixthMessageRow4', animate('320ms ease-out',style({ transform: 'translateY(4vw)', opacity: 0 }))),
+      query('#sixthMessageRow3', animate('280ms 100ms ease-out',style({ transform: 'translateY(8vw)', opacity: 0 }))),
+      query('#sixthMessageRow2', animate('240ms 200ms ease-out',style({ transform: 'translateY(17vw)', opacity: 0 }))),
+      query('#sixthMessageRow1', animate('200ms 300ms ease-out',style({ transform: 'translateY(25vw)', opacity: 0 }))),
     ])
   ])
 ])
@@ -642,12 +642,12 @@ export const seventhMessagesTrigger = trigger('seventhMessages', [
   ]),
   transition(':leave', [
     group([
-      query('#seventhMessageRow1', animate('200ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
-      query('#seventhMessageRow2', animate('160ms 40ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
-      query('#seventhMessageRow3', animate('120ms 80ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
-      query('#seventhMessageRow4', animate('100ms 120ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
-      query('#seventhMessageRow5', animate('100ms 140ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
-      query('#seventhMessageRow6', animate('100ms 160ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
+      query('#seventhMessageRow1', animate('240ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
+      query('#seventhMessageRow2', animate('200ms 80ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
+      query('#seventhMessageRow3', animate('180ms 160ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
+      query('#seventhMessageRow4', animate('140ms 240ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
+      query('#seventhMessageRow5', animate('140ms 300ms ease-out',style({ transform: 'translateX(15vw)', opacity: 0 }))),
+      query('#seventhMessageRow6', animate('140ms 360ms ease-out',style({ transform: 'translateX(-15vw)', opacity: 0 }))),
     ])
   ])
 ])
@@ -660,7 +660,7 @@ export const eighthMessagesTrigger = trigger('eighthMessages', [
     query('#eighthMessagesRow1,#eighthMessagesRow2', animate('300ms 140ms ease-in', style({ transform: 'translateY(0)', opacity: 1 })))
   ]),
   transition(':leave', [
-    query('#eighthMessagesRow1,#eighthMessagesRow2', animate('300ms ease-out',style({ opacity: 0 })))
+    query('#eighthMessagesRow1,#eighthMessagesRow2', animate('500ms ease-out',style({ opacity: 0 })))
   ])
 ])
 
@@ -726,7 +726,7 @@ export const halfminuteTrigger = trigger('halfminute', [
     ])
   ]),
   transition(':leave', [
-    animate('400ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
+    animate('500ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
   ]),
 ]);
 
@@ -792,6 +792,6 @@ export const lastTrigger = trigger('last', [
     ])
   ]),
   transition(':leave', [
-    animate('400ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
+    animate('500ms ease-in',style({ transform: 'translate(100vw,-55vw) rotateZ(335deg)'}))
   ]),
 ]);

@@ -1,12 +1,12 @@
-<div class="row3col">
+<div class="row3col" *ngIf="header">
     <div id="quotedesc">
-        <p>Timp de pariere rămas: <span>{{secToDraw}}</span></p>
+        <p>{{messages[49]}}: <span>{{minToShow}}:{{secToShow}}</span></p>
     </div>
     <div id="event">
-        <p>Numaru evenimentului: {{roundNr}}</p>
+        <p>{{messages[50]}}: {{roundNr}}</p>
     </div>
 </div>
-<div class="first7">
+<div class="first7" *ngIf="first">
     <img id="i01" class="st7" src="./assets/images/01.png" [@fromLeftAnim]="imageStat[0]">
     <img id="i02" class="st7" src="./assets/images/02.png" [@fromLeftAnim]="imageStat[1]">
     <img id="i03" class="st7" src="./assets/images/03.png" [@fromLeftAnim]="imageStat[2]">
@@ -22,7 +22,7 @@
     <div class="middleColumn" id="firstMessageRow4">{{messages[3]}}</div>
     <div class="middleColumn" id="firstMessageRow5">{{messages[4]}}</div>
 </div>
-<div class="messagesZ" *ngIf="secondMessages" @secondMessages>
+<div class="messages" *ngIf="secondMessages" @secondMessages>
     <div class="middleColumn" id="secondMessageRow1">{{messages[5]}}</div>
     <div class="middleColumn" id="secondMessageRow2">{{messages[6]}}</div>
     <div class="middleColumn" id="secondMessageRow3">{{messages[7]}}</div>
@@ -105,7 +105,7 @@
     <div class="middleColumn" id="thirdMessageRow3">{{messages[11]}}</div>
     <div class="middleColumn" id="thirdMessageRow4">{{messages[12]}}</div>
 </div>
-<div class="messagesZ" *ngIf="fourthMessages" @fourthMessages>
+<div class="messages" *ngIf="fourthMessages" @fourthMessages>
     <div class="middleColumn" id="fourthMessageRow1">{{messages[13]}}</div>
     <table class="middleColumn">
         <tbody>
@@ -124,7 +124,7 @@
     <div class="middleColumn" id="fivethMessageRow3">{{messages[19]}}</div>
     <div class="middleColumn" id="fivethMessageRow4">{{messages[20]}}</div>
 </div>
-<div class="messagesZ" *ngIf="sixthMessages" @sixthMessages>
+<div class="messages" *ngIf="sixthMessages" @sixthMessages>
     <div class="middleColumn" id="sixthMessageRow1">{{messages[21]}}</div>
     <div class="middleColumn" id="sixthMessageRow2">{{messages[22]}}</div>
     <div class="middleColumn" id="sixthMessageRow3">{{messages[23]}}</div>
@@ -138,7 +138,7 @@
     <div class="middleColumn" id="seventhMessageRow5">{{messages[29]}}</div>
     <div class="middleColumn" id="seventhMessageRow6">{{messages[30]}}</div>
 </div>
-<div class="messagesZ" *ngIf="eighthMessages" @eighthMessages>
+<div class="messages" *ngIf="eighthMessages" @eighthMessages>
     <div class="middleColumn" id="eighthMessagesRow1">{{messages[31]}}</div>
     <div class="middleColumn" id="eighthMessagesRow2">
         {{messages[32]}}<br/>
@@ -150,7 +150,7 @@
 <div class="minute" *ngIf="oneMin" @minute>
     <div class="leftBlock">1</div>
     <div class="minRow1">{{messages[45]}}</div>
-    <div class="minRow2">{{messages[37]}}</div>
+    <div class="minRow2">{{messages[51]}}</div>
     <div class="minRow3">{{messages[38]}}</div>
 </div>
 <div id="second" *ngIf="halfMin" @halfminute>

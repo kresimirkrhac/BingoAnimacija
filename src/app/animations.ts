@@ -6,11 +6,12 @@ export const routeStateTrigger = trigger('routeState', [
   transition('introPage => drawPage', [
     group([
       query(':leave',[
-        animate('1200ms ease-out', style({opacity: 0}))
+        style({opacity: 0.4}),
+        animate('400ms ease-out', style({opacity: 0})),
       ], {optional: true}),
       query(':enter', [
-        style({ opacity: 0.1 }),
-        animate('1200ms ease-in', style({opacity: 1}))
+        style({ opacity: 0 }),
+        animate('1000ms ease-out', style({opacity: 1}))
       ], {optional: true})
     ])
   ]),
@@ -20,7 +21,7 @@ export const routeStateTrigger = trigger('routeState', [
         animate('600ms ease-out', style({opacity: 0}))
       ], {optional: true}),
       query(':enter', [
-        style({ opacity: 0.1 }),
+        style({ opacity: 0 }),
         animate('1200ms ease-in', style({opacity: 1}))
       ], {optional: true}),
       query('@fadeIn', [
@@ -31,11 +32,11 @@ export const routeStateTrigger = trigger('routeState', [
   transition('resultsPage => introPage', [
     group([
       query(':leave',[
-        animate('1200ms ease-out', style({opacity: 0}))
+        animate('600ms ease-out', style({opacity: 0}))
       ], {optional: true}),
       query(':enter', [
-        style({ opacity: 0.1 }),
-        animate('1200ms ease-in', style({opacity: 1}))
+        style({ opacity: 0 }),
+        animate('1000ms ease-out', style({opacity: 1}))
       ], {optional: true})
     ])
   ])

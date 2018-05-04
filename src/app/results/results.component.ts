@@ -11,6 +11,7 @@ import { fadeInTrigger } from './animations';
 export class ResultsComponent implements OnInit {
   roundNr: number;
   drawQue: string[] = [];
+  messages: string[] = [];
 
   constructor(private service: ServiceService) { }
 
@@ -21,6 +22,7 @@ export class ResultsComponent implements OnInit {
     }
     this.drawQue = this.service.getdrawQue();
     this.roundNr = this.service.getRoundNr();
+    this.messages = this.service.getMesagesHr();
     var secToWait = (secToDraw > 150) ? (secToDraw - 150) : 0;
     setTimeout(() => {
       this.service.changeRoute();

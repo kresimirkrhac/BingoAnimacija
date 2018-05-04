@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Anton');
-/* @import url("https://fonts.googleapis.com/css?family=Teko:600");
-@import url('https://fonts.googleapis.com/css?family=Oswald:700'); */
+
 *  {
     box-sizing: border-box;
 }
@@ -9,13 +8,15 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color: white;
-    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
 }
 .row3col {
     display: grid;
     grid-template-columns: 2fr 1.5fr 1.55fr;
     height: 6vw;
     margin: 0 5%;
+    z-index: 1;
 }
 .row3col > div > p {
     -webkit-margin-before: 0;
@@ -175,7 +176,7 @@
 #n07, #n14, #n21, #n28, #n35 {
     top: 42vw;
 }
-.messages, .messagesZ {
+.messages {
     display: grid;
     grid-template-columns: 2fr 10fr 1.55fr;
     font-family: 'Anton', sans-serif;
@@ -183,16 +184,12 @@
     height: 100%;
     width: 100%;
 }
-.messagesZ {
-    position: fixed;
-    top: 6vw;
-    left: 0;
-    z-index: 1;
-    height: calc(100% - 9vw);
-}
 .middleColumn {
     grid-column: 2;
     text-align: center;
+}
+.first7 {
+    z-index: 1;
 }
 #firstMessageRow1 {
     font-size: 3vw;
@@ -211,6 +208,7 @@
 }
 #secondMessageRow1 {
     font-size: 4vw;
+    margin-top: 3vw;
 }
 #secondMessageRow2 {
     font-size: 4vw;
@@ -252,12 +250,13 @@
 }
 .minRow2 {
     font-size: 5vw;
+    transform: scaleY(1.5);
 }
 .minRow3 {
     font-size: 2vw;
 }
 #thirdMessageRow1 {
-    margin-top: 2vw;
+    margin-top: 5vw;
     font-size: 4vw;
     text-align: right;
     width: 90%;
@@ -278,7 +277,7 @@
     width: 90%;
 }
 #fourthMessageRow1 {
-    margin-top: 2vw;
+    margin-top: 6vw;
     font-size: 7.5vw;
     line-height: 7.5vw;
 }
@@ -307,7 +306,7 @@
 #fivethMessageRow1 {
     font-size: 7vw;
     line-height: 7vw;
-    margin-top: 4vw;
+    margin-top: 6vw;
     width: 80%;
 }
 #fivethMessageRow2 {
@@ -324,7 +323,7 @@
     line-height: 12vw;
 }
 #sixthMessageRow1 {
-    margin-top: 4vw;
+    margin-top: 7vw;
     font-size: 6vw;
     text-align: right;
     width: 55%;
@@ -344,7 +343,7 @@
 }
 #seventhMessageRow1 {
     font-size: 4vw;
-    margin-top: 2vw;
+    margin-top: 4vw;
 }
 #seventhMessageRow2 {
     font-size: 2.5vw;
@@ -367,6 +366,7 @@
     align-self: end;
     margin-bottom: 2vw;
     font-size: 4vw;
+    margin-top: 10vw;
 }
 #eighthMessagesRow2 {
     font-size: 3vw;
@@ -387,8 +387,8 @@
     width: 35vw;
     height: 20vw;
     position: fixed;
-    top: 30%;
-    left: 37%;
+    top: 34%;
+    left: 34%;
     z-index: 2;
     overflow: hidden;
     border: 0.2vw solid rgba(255,255,255,1);
@@ -403,7 +403,8 @@
     grid-row: 1 / span 2;
     align-self: center;
     justify-self: center;
-    font-size: 15vw;
+    font-size: 12vw;
+    margin: 0 -1vw 0 1vw;
 }
 #secRow1 {
     grid-row: 1;
@@ -414,6 +415,7 @@
     grid-row: 2;
     grid-column: 2;
     font-size: 5vw;
+    transform: scaleY(1.5);
 }
 #secRow3 {
     grid-row: 3;
@@ -446,20 +448,21 @@
     text-align: center;
     height: 25vw;
     width: 25vw;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #last {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 5fr;
-    width: 20vw;
-    height: 20vw;
+    width: 23vw;
+    height: 27vw;
     position: fixed;
     top: 27%;
-    left: 42%;
+    left: 40%;
     z-index: 2;
     overflow: hidden;
     border: 0.2vw solid rgba(255,255,255,1);
-    border-radius: 10% 10% 10% 10% / 15% 15% 15% 15%;
+    border-radius: 15% 15% 15% 15% / 17% 17% 17% 17%;
     font-family: 'Anton', sans-serif;
     text-align: center;
     background-image: radial-gradient(ellipse at right bottom, rgba(214,132,51,1) 0, rgba(242,67,39,1) 50%, rgba(125,44,37,1) 100%);
@@ -468,17 +471,18 @@
 }
 #lastRow1 {
     grid-column: 1 / span 2;
-    font-size: 4vw;
+    font-size: 5vw;
 }
 #lastRow2, #lastRow3 {
     grid-column: 2;
-    font-size: 4vw;
+    font-size: 5vw;
+    transform: scaleY(1.5);
 }
 #lastLeftBlock {
     grid-row: 2 / span 2;
     grid-column: 1;
-    font-size: 2vw;
+    font-size: 3vw;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    margin-left: 0.5vw;
+    margin: -1.5vw 0 0.5vw 0.7vw;
 }
