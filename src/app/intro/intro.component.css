@@ -8,6 +8,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color: white;
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
 }
@@ -34,30 +35,40 @@
 .st7 {
     position: absolute;
     height: 4.5vw;
+    line-height: 4.3vw;
+	font-size: 2.2vw;
     width: 4.5vw;
     left: 10vw;
 }
 .nd7 {
     position: absolute;
     height: 4.5vw;
+	line-height: 4.3vw;
+	font-size: 2.2vw;
     width: 4.5vw;
     left: 28vw;
 }
 .td7 {
     position: absolute;
     height: 4.5vw;
+	line-height: 4.3vw;
+	font-size: 2.2vw;
     width: 4.5vw;
     left: 46vw;
 }
 .th7 {
     position: absolute;
     height: 4.5vw;
+	line-height: 4.3vw;
+	font-size: 2.2vw;
     width: 4.5vw;
     left: 64vw;
 }
 .ff7 {
     position: absolute;
     height: 4.5vw;
+	line-height: 4.3vw;
+	font-size: 2.2vw;
     width: 4.5vw;
     left: 82vw;
 }
@@ -156,25 +167,25 @@
     font-size: 2vw;
 }
 #n08, #n15, #n22, #n29 {
-    top: 6vw;
+    top: 6.1vw;
 }
 #n09, #n16, #n23, #n30 {
-    top: 12vw;
+    top: 12.1vw;
 }
 #n10, #n17, #n24, #n31 {
-    top: 18vw;
+    top: 18.1vw;
 }
 #n11, #n18, #n25, #n32 {
-    top: 24vw;
+    top: 24.1vw;
 }
 #n12, #n19, #n26, #n33 {
-    top: 30vw;
+    top: 30.1vw;
 }
 #n06, #n13, #n20, #n27, #n34 {
-    top: 36vw;
+    top: 36.1vw;
 }
 #n07, #n14, #n21, #n28, #n35 {
-    top: 42vw;
+    top: 42.1vw;
 }
 .messages {
     display: grid;
@@ -449,6 +460,8 @@
     height: 25vw;
     width: 25vw;
     font-family: Arial, Helvetica, sans-serif;
+    /* pobrisati ako se pusti clock-title */
+    margin-top: 10.5vw;
 }
 #last {
     display: grid;

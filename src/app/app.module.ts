@@ -9,6 +9,9 @@ import { DrawComponent } from './draw/draw.component';
 import { ResultsComponent } from './results/results.component';
 import { IntroComponent } from './intro/intro.component';
 import { ServiceService } from './service.service';
+import { HttpModule } from '@angular/http';
+import { WebSocketService } from '../shared/common/websocket.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import { ServiceService } from './service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
   ],
-  providers: [ServiceService],
-  bootstrap: [AppComponent]
+  providers: [ServiceService, WebSocketService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

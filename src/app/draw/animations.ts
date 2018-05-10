@@ -1,5 +1,5 @@
 import {
-  trigger,  state,  style,  transition,  animate,  keyframes,  query,  stagger
+  trigger,  state,  style,  transition,  animate,  keyframes,  query,  stagger, group
 } from '@angular/animations';
 
 export const fadeInTrigger = trigger('fadeIn', [
@@ -34,4 +34,33 @@ export const fadeInTrigger = trigger('fadeIn', [
       })
     ]))
   )
+]);
+export const fadeInTriggerBall = trigger('fadeInBall', [
+  transition(':enter', [
+    group([
+      // style({ transform: 'scale(0.1) translate(0,0)'}),
+      animate('400ms ease-out', keyframes([
+        style({
+          opacity: 0.5,
+          transform: 'scale(0.1) translate(0,0)',
+          offset: 0
+        }),
+        style({
+          opacity: 1,
+          transform: 'scale(0.4) translate(50%,60%)',
+          offset: 0.33
+        }),
+        style({
+          opacity: 1,
+          transform: 'scale(0.75) translate(25%,20%)',
+          offset: 0.66
+        }),
+        style({
+          opacity: 1,
+          transform: 'scale(1)  translate(0,0)',
+          offset: 1
+        })
+      ]))
+    ])
+  ])
 ]);

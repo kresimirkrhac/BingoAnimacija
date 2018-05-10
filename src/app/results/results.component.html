@@ -12,39 +12,39 @@
     <div id="field3" class="field"></div>
     <div id="field4" class="field"></div>
     <div id="field5" class="field"></div>
-    <div id="ball01" class="cell"><img src="./assets/images/{{drawQue[0]}}.png"><span class="text">{{messages[48]}} 1</span></div>
-    <div id="ball02" class="cell"><img src="./assets/images/{{drawQue[1]}}.png"><span class="text">{{messages[48]}} 2</span></div>
-    <div id="ball03" class="cell"><img src="./assets/images/{{drawQue[2]}}.png"><span class="text">{{messages[48]}} 3</span></div>
-    <div id="ball04" class="cell"><img src="./assets/images/{{drawQue[3]}}.png"><span class="text">{{messages[48]}} 4</span></div>
-    <div id="ball05" class="cell"><img src="./assets/images/{{drawQue[4]}}.png"><span class="text">{{messages[48]}} 5</span></div>
-    <div id="ball06" class="cell"><img src="./assets/images/{{drawQue[5]}}.png"><span class="text">10.000</span></div>
-    <div id="ball07" class="cell"><img src="./assets/images/{{drawQue[6]}}.png"><span class="text">7.500</span></div>
-    <div id="ball08" class="cell"><img src="./assets/images/{{drawQue[7]}}.png"><span class="text">5.000</span></div>
-    <div id="ball09" class="cell"><img src="./assets/images/{{drawQue[8]}}.png"><span class="text">2.500</span></div>
-    <div id="ball10" class="cell"><img src="./assets/images/{{drawQue[9]}}.png"><span class="text">1.000</span></div>
-    <div id="ball11" class="cell"><img src="./assets/images/{{drawQue[10]}}.png"><span class="text">500</span></div>
-    <div id="ball12" class="cell"><img src="./assets/images/{{drawQue[11]}}.png"><span class="text">300</span></div>
-    <div id="ball13" class="cell"><img src="./assets/images/{{drawQue[12]}}.png"><span class="text">200</span></div>
-    <div id="ball14" class="cell"><img src="./assets/images/{{drawQue[13]}}.png"><span class="text">150</span></div>
-    <div id="ball15" class="cell"><img src="./assets/images/{{drawQue[14]}}.png"><span class="text">100</span></div>
-    <div id="ball16" class="cell"><img src="./assets/images/{{drawQue[15]}}.png"><span class="text">90</span></div>
-    <div id="ball17" class="cell"><img src="./assets/images/{{drawQue[16]}}.png"><span class="text">80</span></div>
-    <div id="ball18" class="cell"><img src="./assets/images/{{drawQue[17]}}.png"><span class="text">70</span></div>
-    <div id="ball19" class="cell"><img src="./assets/images/{{drawQue[18]}}.png"><span class="text">60</span></div>
-    <div id="ball20" class="cell"><img src="./assets/images/{{drawQue[19]}}.png"><span class="text">50</span></div>
-    <div id="ball21" class="cell"><img src="./assets/images/{{drawQue[20]}}.png"><span class="text">40</span></div>
-    <div id="ball22" class="cell"><img src="./assets/images/{{drawQue[21]}}.png"><span class="text">30</span></div>
-    <div id="ball23" class="cell"><img src="./assets/images/{{drawQue[22]}}.png"><span class="text">25</span></div>
-    <div id="ball24" class="cell"><img src="./assets/images/{{drawQue[23]}}.png"><span class="text">20</span></div>
-    <div id="ball25" class="cell"><img src="./assets/images/{{drawQue[24]}}.png"><span class="text">15</span></div>
-    <div id="ball26" class="cell"><img src="./assets/images/{{drawQue[25]}}.png"><span class="text">10</span></div>
-    <div id="ball27" class="cell"><img src="./assets/images/{{drawQue[26]}}.png"><span class="text">9</span></div>
-    <div id="ball28" class="cell"><img src="./assets/images/{{drawQue[27]}}.png"><span class="text">8</span></div>
-    <div id="ball29" class="cell"><img src="./assets/images/{{drawQue[28]}}.png"><span class="text">7</span></div>
-    <div id="ball30" class="cell"><img src="./assets/images/{{drawQue[29]}}.png"><span class="text">6</span></div>
-    <div id="ball31" class="cell"><img src="./assets/images/{{drawQue[30]}}.png"><span class="text">5</span></div>
-    <div id="ball32" class="cell"><img src="./assets/images/{{drawQue[31]}}.png"><span class="text">4</span></div>
-    <div id="ball33" class="cell"><img src="./assets/images/{{drawQue[32]}}.png"><span class="text">3</span></div>
-    <div id="ball34" class="cell"><img src="./assets/images/{{drawQue[33]}}.png"><span class="text">2</span></div>
-    <div id="ball35" class="cell"><img src="./assets/images/{{drawQue[34]}}.png"><span class="text">1</span></div>
+    <div id="ball01" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[0] % 7]">{{drawQue[0]}}</div></div><!-- <img src="./assets/images/{{drawQue[0]}}.png"> --><span class="text">{{messages[48]}} 1</span></div>
+    <div id="ball02" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[1] % 7]">{{drawQue[1]}}</div></div><!-- <img src="./assets/images/{{drawQue[1]}}.png"> --><span class="text">{{messages[48]}} 2</span></div>
+    <div id="ball03" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[2] % 7]">{{drawQue[2]}}</div></div><!-- <img src="./assets/images/{{drawQue[2]}}.png"> --><span class="text">{{messages[48]}} 3</span></div>
+    <div id="ball04" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[3] % 7]">{{drawQue[3]}}</div></div><!-- <img src="./assets/images/{{drawQue[3]}}.png"> --><span class="text">{{messages[48]}} 4</span></div>
+    <div id="ball05" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[4] % 7]">{{drawQue[4]}}</div></div><!-- <img src="./assets/images/{{drawQue[4]}}.png"> --><span class="text">{{messages[48]}} 5</span></div>
+    <div id="ball06" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[5] % 7]">{{drawQue[5]}}</div></div><!-- <img src="./assets/images/{{drawQue[5]}}.png"> --><span class="text">10.000</span></div>
+    <div id="ball07" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[6] % 7]">{{drawQue[6]}}</div></div><!-- <img src="./assets/images/{{drawQue[6]}}.png"> --><span class="text">7.500</span></div>
+    <div id="ball08" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[7] % 7]">{{drawQue[7]}}</div></div><!-- <img src="./assets/images/{{drawQue[7]}}.png"> --><span class="text">5.000</span></div>
+    <div id="ball09" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[8] % 7]">{{drawQue[8]}}</div></div><!-- <img src="./assets/images/{{drawQue[8]}}.png"> --><span class="text">2.500</span></div>
+    <div id="ball10" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[9] % 7]">{{drawQue[9]}}</div></div><!-- <img src="./assets/images/{{drawQue[9]}}.png"> --><span class="text">1.000</span></div>
+    <div id="ball11" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[10] % 7]">{{drawQue[10]}}</div></div><!-- <img src="./assets/images/{{drawQue[10]}}.png"> --><span class="text">500</span></div>
+    <div id="ball12" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[11] % 7]">{{drawQue[11]}}</div></div><!-- <img src="./assets/images/{{drawQue[11]}}.png"> --><span class="text">300</span></div>
+    <div id="ball13" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[12] % 7]">{{drawQue[12]}}</div></div><!-- <img src="./assets/images/{{drawQue[12]}}.png"> --><span class="text">200</span></div>
+    <div id="ball14" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[13] % 7]">{{drawQue[13]}}</div></div><!-- <img src="./assets/images/{{drawQue[13]}}.png"> --><span class="text">150</span></div>
+    <div id="ball15" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[14] % 7]">{{drawQue[14]}}</div></div><!-- <img src="./assets/images/{{drawQue[14]}}.png"> --><span class="text">100</span></div>
+    <div id="ball16" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[15] % 7]">{{drawQue[15]}}</div></div><!-- <img src="./assets/images/{{drawQue[15]}}.png"> --><span class="text">90</span></div>
+    <div id="ball17" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[16] % 7]">{{drawQue[16]}}</div></div><!-- <img src="./assets/images/{{drawQue[16]}}.png"> --><span class="text">80</span></div>
+    <div id="ball18" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[17] % 7]">{{drawQue[17]}}</div></div><!-- <img src="./assets/images/{{drawQue[17]}}.png"> --><span class="text">70</span></div>
+    <div id="ball19" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[18] % 7]">{{drawQue[18]}}</div></div><!-- <img src="./assets/images/{{drawQue[18]}}.png"> --><span class="text">60</span></div>
+    <div id="ball20" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[19] % 7]">{{drawQue[19]}}</div></div><!-- <img src="./assets/images/{{drawQue[19]}}.png"> --><span class="text">50</span></div>
+    <div id="ball21" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[20] % 7]">{{drawQue[20]}}</div></div><!-- <img src="./assets/images/{{drawQue[20]}}.png"> --><span class="text">40</span></div>
+    <div id="ball22" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[21] % 7]">{{drawQue[21]}}</div></div><!-- <img src="./assets/images/{{drawQue[21]}}.png"> --><span class="text">30</span></div>
+    <div id="ball23" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[22] % 7]">{{drawQue[22]}}</div></div><!-- <img src="./assets/images/{{drawQue[22]}}.png"> --><span class="text">25</span></div>
+    <div id="ball24" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[23] % 7]">{{drawQue[23]}}</div></div><!-- <img src="./assets/images/{{drawQue[23]}}.png"> --><span class="text">20</span></div>
+    <div id="ball25" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[24] % 7]">{{drawQue[24]}}</div></div><!-- <img src="./assets/images/{{drawQue[24]}}.png"> --><span class="text">15</span></div>
+    <div id="ball26" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[25] % 7]">{{drawQue[25]}}</div></div><!-- <img src="./assets/images/{{drawQue[25]}}.png"> --><span class="text">10</span></div>
+    <div id="ball27" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[26] % 7]">{{drawQue[26]}}</div></div><!-- <img src="./assets/images/{{drawQue[26]}}.png"> --><span class="text">9</span></div>
+    <div id="ball28" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[27] % 7]">{{drawQue[27]}}</div></div><!-- <img src="./assets/images/{{drawQue[27]}}.png"> --><span class="text">8</span></div>
+    <div id="ball29" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[28] % 7]">{{drawQue[28]}}</div></div><!-- <img src="./assets/images/{{drawQue[28]}}.png"> --><span class="text">7</span></div>
+    <div id="ball30" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[29] % 7]">{{drawQue[29]}}</div></div><!-- <img src="./assets/images/{{drawQue[29]}}.png"> --><span class="text">6</span></div>
+    <div id="ball31" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[30] % 7]">{{drawQue[30]}}</div></div><!-- <img src="./assets/images/{{drawQue[30]}}.png"> --><span class="text">5</span></div>
+    <div id="ball32" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[31] % 7]">{{drawQue[31]}}</div></div><!-- <img src="./assets/images/{{drawQue[31]}}.png"> --><span class="text">4</span></div>
+    <div id="ball33" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[32] % 7]">{{drawQue[32]}}</div></div><!-- <img src="./assets/images/{{drawQue[32]}}.png"> --><span class="text">3</span></div>
+    <div id="ball34" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[33] % 7]">{{drawQue[33]}}</div></div><!-- <img src="./assets/images/{{drawQue[33]}}.png"> --><span class="text">2</span></div>
+    <div id="ball35" class="cell"><div class="image"><div class="img" [ngClass]="colors[drawQue[34] % 7]">{{drawQue[34]}}</div></div><!-- <img src="./assets/images/{{drawQue[34]}}.png"> --><span class="text">1</span></div>
 </div>

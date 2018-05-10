@@ -41,4 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/src/app/service.service.ts
+src/app/app.component.ts
+src/app/service.service.ts
+src/shared/common/websocket.ts
+src/shared/common/websocket.service.ts
+src/shared/BingoRoundDetailsDto.ts

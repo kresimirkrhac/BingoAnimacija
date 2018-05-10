@@ -8,142 +8,342 @@
 </div>
 <div class="containter">
     <div id="draw">
-        <img id="imgDw" src="./assets/{{drawExpl}}/{{ballDraw}}/{{ballDraw}}_000{{drawFrame}}.png">
-        <img id="imgEx" src="./assets/explode/{{ballExpl}}/{{ballExpl}}_000{{explFrame}}.png">
+        <div *ngIf="fadeInStatc[0]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[1]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[2]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[3]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[4]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[5]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[6]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[7]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[8]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[9]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[10]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[11]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[12]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[13]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[14]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[15]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[16]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[17]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[18]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[19]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[20]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[21]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[22]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[23]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[24]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[25]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[26]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[27]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[28]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[29]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[30]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[31]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[32]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[33]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <div *ngIf="fadeInStatc[34]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
+            <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
+        </div>
+        <!-- <img id="imgDw" src="./assets/{{drawExpl}}/{{ballDraw}}/{{ballDraw}}_000{{drawFrame}}.png"> -->
+        <!-- <img id="imgEx" src="./assets/explode/{{ballExpl}}/{{ballExpl}}_000{{explFrame}}.png"> -->
     </div>
     <div id="ball01">
-        <img class="ball" src="./assets/images/{{drawQue[0]}}.png" [@fadeIn]="fadeInStat[0]">
+        <!-- <img class="ball" src="./assets/images/{{drawQue[0]}}.png" [@fadeIn]="fadeInStat[0]"> -->
+        <div class="ball img" [ngClass]="colors[drawQue[0] % 7]" [@fadeIn]="fadeInStat[0]">{{drawQue[0]}}</div>
     </div>
     <div id="ball02">
-        <img class="ball" src="./assets/images/{{drawQue[1]}}.png" [@fadeIn]="fadeInStat[1]">
+        <!-- <img class="ball" src="./assets/images/{{drawQue[1]}}.png" [@fadeIn]="fadeInStat[1]"> -->
+        <div class="ball img" [ngClass]="colors[drawQue[1] % 7]" [@fadeIn]="fadeInStat[1]">{{drawQue[1]}}</div>
     </div>
     <div id="ball03">
-        <img class="ball" src="./assets/images/{{drawQue[2]}}.png" [@fadeIn]="fadeInStat[2]">
+        <!-- <img class="ball" src="./assets/images/{{drawQue[2]}}.png" [@fadeIn]="fadeInStat[2]"> -->
+        <div class="ball img" [ngClass]="colors[drawQue[2] % 7]" [@fadeIn]="fadeInStat[2]">{{drawQue[2]}}</div>
     </div>
     <div id="ball04">
-        <img class="ball" src="./assets/images/{{drawQue[3]}}.png" [@fadeIn]="fadeInStat[3]">
+        <!-- <img class="ball" src="./assets/images/{{drawQue[3]}}.png" [@fadeIn]="fadeInStat[3]"> -->
+        <div class="ball img" [ngClass]="colors[drawQue[3] % 7]" [@fadeIn]="fadeInStat[3]">{{drawQue[3]}}</div>
     </div>
     <div id="ball05">
-        <img class="ball" src="./assets/images/{{drawQue[4]}}.png" [@fadeIn]="fadeInStat[4]">
+        <!-- <img class="ball" src="./assets/images/{{drawQue[4]}}.png" [@fadeIn]="fadeInStat[4]"> -->
+        <div class="ball img" [ngClass]="colors[drawQue[4] % 7]" [@fadeIn]="fadeInStat[4]">{{drawQue[4]}}</div>
     </div>
     <div id="ball06" class="field">
         <div class="content">10.000</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[5]}}.png" [@fadeIn]="fadeInStat[5]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[5]}}.png" [@fadeIn]="fadeInStat[5]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[5] % 7]" [@fadeIn]="fadeInStat[5]">{{drawQue[5]}}</div>
+        </div>
     </div>
     <div id="ball07" class="field">
         <div class="content">7.500</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[6]}}.png" [@fadeIn]="fadeInStat[6]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[6]}}.png" [@fadeIn]="fadeInStat[6]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[6] % 7]" [@fadeIn]="fadeInStat[6]">{{drawQue[6]}}</div>
+        </div>
     </div>
     <div id="ball08" class="field">
         <div class="content">5.000</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[7]}}.png" [@fadeIn]="fadeInStat[7]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[7]}}.png" [@fadeIn]="fadeInStat[7]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[7] % 7]" [@fadeIn]="fadeInStat[7]">{{drawQue[7]}}</div>
+        </div>
     </div>
     <div id="ball09" class="field">
         <div class="content">2.500</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[8]}}.png" [@fadeIn]="fadeInStat[8]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[8]}}.png" [@fadeIn]="fadeInStat[8]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[8] % 7]" [@fadeIn]="fadeInStat[8]">{{drawQue[8]}}</div>
+        </div>
     </div>
     <div id="ball10" class="field">
         <div class="content">1.000</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[9]}}.png" [@fadeIn]="fadeInStat[9]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[9]}}.png" [@fadeIn]="fadeInStat[9]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[9] % 7]" [@fadeIn]="fadeInStat[9]">{{drawQue[9]}}</div>
+        </div>
     </div>
     <div id="ball11" class="field">
         <div class="content">500</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[10]}}.png" [@fadeIn]="fadeInStat[10]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[10]}}.png" [@fadeIn]="fadeInStat[10]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[10] % 7]" [@fadeIn]="fadeInStat[10]">{{drawQue[10]}}</div>
+        </div>
     </div>
     <div id="ball12" class="field">
         <div class="content">300</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[11]}}.png" [@fadeIn]="fadeInStat[11]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[11]}}.png" [@fadeIn]="fadeInStat[11]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[11] % 7]" [@fadeIn]="fadeInStat[11]">{{drawQue[11]}}</div>
+        </div>
     </div>
     <div id="ball13" class="field">
         <div class="content">200</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[12]}}.png" [@fadeIn]="fadeInStat[12]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[12]}}.png" [@fadeIn]="fadeInStat[12]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[12] % 7]" [@fadeIn]="fadeInStat[12]">{{drawQue[12]}}</div>
+        </div>
     </div>
     <div id="ball14" class="field">
         <div class="content">150</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[13]}}.png" [@fadeIn]="fadeInStat[13]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[13]}}.png" [@fadeIn]="fadeInStat[13]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[13] % 7]" [@fadeIn]="fadeInStat[13]">{{drawQue[13]}}</div>
+        </div>
     </div>
     <div id="ball15" class="field">
         <div class="content">100</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[14]}}.png" [@fadeIn]="fadeInStat[14]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[14]}}.png" [@fadeIn]="fadeInStat[14]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[14] % 7]" [@fadeIn]="fadeInStat[14]">{{drawQue[14]}}</div>
+        </div>
     </div>
     <div id="ball16" class="field">
         <div class="content">90</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[15]}}.png" [@fadeIn]="fadeInStat[15]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[15]}}.png" [@fadeIn]="fadeInStat[15]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[15] % 7]" [@fadeIn]="fadeInStat[15]">{{drawQue[15]}}</div>
+        </div>
     </div>
     <div id="ball17" class="field">
         <div class="content">80</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[16]}}.png" [@fadeIn]="fadeInStat[16]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[16]}}.png" [@fadeIn]="fadeInStat[16]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[16] % 7]" [@fadeIn]="fadeInStat[16]">{{drawQue[16]}}</div>
+        </div>
     </div>
     <div id="ball18" class="field">
         <div class="content">70</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[17]}}.png" [@fadeIn]="fadeInStat[17]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[17]}}.png" [@fadeIn]="fadeInStat[17]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[17] % 7]" [@fadeIn]="fadeInStat[17]">{{drawQue[17]}}</div>
+        </div>
     </div>
     <div id="ball19" class="field">
         <div class="content">60</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[18]}}.png" [@fadeIn]="fadeInStat[18]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[18]}}.png" [@fadeIn]="fadeInStat[18]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[18] % 7]" [@fadeIn]="fadeInStat[18]">{{drawQue[18]}}</div>
+        </div>
     </div>
     <div id="ball20" class="field">
         <div class="content">50</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[19]}}.png" [@fadeIn]="fadeInStat[19]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[19]}}.png" [@fadeIn]="fadeInStat[19]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[19] % 7]" [@fadeIn]="fadeInStat[19]">{{drawQue[19]}}</div>
+        </div>
     </div>
     <div id="ball21" class="field">
         <div class="content">40</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[20]}}.png" [@fadeIn]="fadeInStat[20]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[20]}}.png" [@fadeIn]="fadeInStat[20]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[20] % 7]" [@fadeIn]="fadeInStat[20]">{{drawQue[20]}}</div>
+        </div>
     </div>
     <div id="ball22" class="field">
         <div class="content">30</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[21]}}.png" [@fadeIn]="fadeInStat[21]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[21]}}.png" [@fadeIn]="fadeInStat[21]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[21] % 7]" [@fadeIn]="fadeInStat[21]">{{drawQue[21]}}</div>
+        </div>
     </div>
     <div id="ball23" class="field">
         <div class="content">25</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[22]}}.png" [@fadeIn]="fadeInStat[22]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[22]}}.png" [@fadeIn]="fadeInStat[22]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[22] % 7]" [@fadeIn]="fadeInStat[22]">{{drawQue[22]}}</div>
+        </div>
     </div>
     <div id="ball24" class="field">
         <div class="content">20</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[23]}}.png" [@fadeIn]="fadeInStat[23]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[23]}}.png" [@fadeIn]="fadeInStat[23]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[23] % 7]" [@fadeIn]="fadeInStat[23]">{{drawQue[23]}}</div>
+        </div>
     </div>
     <div id="ball25" class="field">
         <div class="content">15</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[24]}}.png" [@fadeIn]="fadeInStat[24]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[24]}}.png" [@fadeIn]="fadeInStat[24]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[24] % 7]" [@fadeIn]="fadeInStat[24]">{{drawQue[24]}}</div>
+        </div>
     </div>
     <div id="ball26" class="field">
         <div class="content">10</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[25]}}.png" [@fadeIn]="fadeInStat[25]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[25]}}.png" [@fadeIn]="fadeInStat[25]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[25] % 7]" [@fadeIn]="fadeInStat[25]">{{drawQue[25]}}</div>
+        </div>
     </div>
     <div id="ball27" class="field">
         <div class="content">9</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[26]}}.png" [@fadeIn]="fadeInStat[26]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[26]}}.png" [@fadeIn]="fadeInStat[26]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[26] % 7]" [@fadeIn]="fadeInStat[26]">{{drawQue[26]}}</div>
+        </div>
     </div>
     <div id="ball28" class="field">
         <div class="content">8</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[27]}}.png" [@fadeIn]="fadeInStat[27]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[27]}}.png" [@fadeIn]="fadeInStat[27]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[27] % 7]" [@fadeIn]="fadeInStat[27]">{{drawQue[27]}}</div>
+        </div>
     </div>
     <div id="ball29" class="field">
         <div class="content">7</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[28]}}.png" [@fadeIn]="fadeInStat[28]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[28]}}.png" [@fadeIn]="fadeInStat[28]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[28] % 7]" [@fadeIn]="fadeInStat[28]">{{drawQue[28]}}</div>
+        </div>
     </div>
     <div id="ball30" class="field">
         <div class="content">6</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[29]}}.png" [@fadeIn]="fadeInStat[29]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[29]}}.png" [@fadeIn]="fadeInStat[29]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[29] % 7]" [@fadeIn]="fadeInStat[29]">{{drawQue[29]}}</div>
+        </div>
     </div>
     <div id="ball31" class="field">
         <div class="content">5</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[30]}}.png" [@fadeIn]="fadeInStat[30]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[30]}}.png" [@fadeIn]="fadeInStat[30]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[30] % 7]" [@fadeIn]="fadeInStat[30]">{{drawQue[30]}}</div>
+        </div>
     </div>
     <div id="ball32" class="field">
         <div class="content">4</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[31]}}.png" [@fadeIn]="fadeInStat[31]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[31]}}.png" [@fadeIn]="fadeInStat[31]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[31] % 7]" [@fadeIn]="fadeInStat[31]">{{drawQue[31]}}</div>
+        </div>
     </div>
     <div id="ball33" class="field">
         <div class="content">3</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[32]}}.png" [@fadeIn]="fadeInStat[32]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[32]}}.png" [@fadeIn]="fadeInStat[32]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[32] % 7]" [@fadeIn]="fadeInStat[32]">{{drawQue[32]}}</div>
+        </div>
     </div>
     <div id="ball34" class="field">
         <div class="content">2</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[33]}}.png" [@fadeIn]="fadeInStat[33]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[33]}}.png" [@fadeIn]="fadeInStat[33]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[33] % 7]" [@fadeIn]="fadeInStat[33]">{{drawQue[33]}}</div>
+        </div>
     </div>
     <div id="ball35" class="field">
         <div class="content">1</div>
-        <div class="button"><img class="ball" src="./assets/images/{{drawQue[34]}}.png" [@fadeIn]="fadeInStat[34]"></div>
+        <!-- <div class="button"><img class="ball" src="./assets/images/{{drawQue[34]}}.png" [@fadeIn]="fadeInStat[34]"></div> -->
+        <div class="button">
+            <div class="img" [ngClass]="colors[drawQue[34] % 7]" [@fadeIn]="fadeInStat[34]">{{drawQue[34]}}</div>
+        </div>
     </div>
 </div>

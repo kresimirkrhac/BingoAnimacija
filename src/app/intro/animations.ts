@@ -280,7 +280,7 @@ export const secondMessagesTrigger = trigger('secondMessages', [
 export const imagesTrigger = trigger('images', [
   transition(':enter', [
     query('.field', style({ opacity: 0 })),
-    query('img', style({ opacity: 0, transform: 'translateX(10vw)' })),
+    query('.img', style({ opacity: 0, transform: 'translateX(10vw)' })),
     query('p', style({ opacity: 0, transform: 'translateX(100%)' })),
     group([
       query('.field', [
@@ -290,7 +290,7 @@ export const imagesTrigger = trigger('images', [
           }))
         ])
       ]),
-      query('img', [
+      query('.img', [
         stagger(80, [
           animate('200ms 200ms ease-out', keyframes([
             style({

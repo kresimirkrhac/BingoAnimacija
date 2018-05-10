@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Http } from '@angular/http';
+import { BingoRoundDetailsDto } from '../shared/BingoRoundDetailsDto';
+import { Subject } from 'rxjs/Subject';
 
 const introMessagesRo = [
   /*  0 */  "Ai şanse să câştigi",
@@ -48,7 +51,7 @@ const introMessagesRo = [
   /* 43 */  "ULTIMELE",
   /* 44 */  "ESTE UN",
   /* 45 */  "MINUT",
-  /* 46 */  "Cotele BeSix pentru fiecare numar extras",
+  /* 46 */  "Cotele pentru fiecare numar extras",
   /* 47 */  "Numaru evenimentului",
   /* 48 */  "Billa",
   /* 49 */  "Timp de pariere rămas",
@@ -102,7 +105,7 @@ const introMessagesEn = [
   /* 43 */  "LAST BETS",
   /* 44 */  "IS UNIQUE",
   /* 45 */  "MINUT",
-  /* 46 */  "BeSix coefficient for each drawn number",
+  /* 46 */  "Coefficient for each drawn number",
   /* 47 */  "Number of event",
   /* 48 */  "Number",
   /* 49 */  "Betting time left",
@@ -121,7 +124,7 @@ const introMessagesHr = [
   /*  8 */  "10,000",
   /*  9 */  "BeSix OMOGUČUJE VEĆE",
   /* 10 */  "ŠANSE ZA DOBITAK",
-  /* 11 */  "IZVLAĆI SE",
+  /* 11 */  "IZVLAČI SE",
   /* 12 */  "35 OD 49 BROJEVA",
   /* 13 */  "BeSix",
   /* 14 */  "KOEFICIENTI SU FIKSNI",
@@ -131,7 +134,7 @@ const introMessagesHr = [
   /* 18 */  "ODABERITE 6 BROJEVA!",
   /* 19 */  "MINIMALNA UPLATA ZA LISTIĆ:",
   /* 20 */  "2 KN",
-  /* 21 */  "POVEČAJTE",
+  /* 21 */  "POVEĆAJTE",
   /* 22 */  "ŠANSE",
   /* 23 */  "IGRANJEM",
   /* 24 */  "SISTEMA",
@@ -156,7 +159,7 @@ const introMessagesHr = [
   /* 43 */  "ZADNJE OKLADE",
   /* 44 */  "JE JEDINSTVEN",
   /* 45 */  "MINUTA",
-  /* 46 */  "BeSix koeficienti za izvučeni broj",
+  /* 46 */  "Koeficienti za izvučeni broj",
   /* 47 */  "Broj događaja",
   /* 48 */  "Broj",
   /* 49 */  "Preostalo vrijeme klađenja",
@@ -166,35 +169,52 @@ const introMessagesHr = [
 
 @Injectable()
 export class ServiceService {
-  drawQue: string[] = [];
-  secToDraw: number = 300;
-  roundNr: number = 255;
+  secToDraw: number = -1;
+  secToDrawSocket: number = 0;
+  timeSocket: Date = undefined;
+  roundNr: number = -1;
+  drawQue: number[] = [];
+  subSecToDraw: Subject<number>;
+  subRoundNr: Subject<number>;
+  subDrawQue: Subject<number[]>;
+  http: Http;
+  roundResults: BingoRoundDetailsDto;
 
-  constructor(private router: Router) { }
-
-  init() {
-    this.drawQue.length = 0;
-    for( var j = 0; j <= 35; j++) {
-      var i = Math.floor(Math.random()*49+1);
-      if( i <= 9)
-        this.drawQue.push(`0${i}`);
-      else
-        this.drawQue.push(`${i}`);
-    }
+  constructor(
+    injector: Injector,
+    private router: Router,
+    @Inject(Http) http: Http) {
+    this.http = http;
+    this.subSecToDraw = new Subject();
+    this.subRoundNr = new Subject();
+    this.subDrawQue = new Subject();
   }
 
   getdrawQue() {
     return this.drawQue;
   }
-
+  
   getSecToDraw() {
-    var time = new Date();
-    var minute = time.getMinutes();
-    var second = time.getSeconds();
-    var minRemain = (minute%10 < 5) ? (5 - (minute%10) - 1) : (10 - (minute%10) - 1);
-    this.secToDraw = minRemain * 60 + (60 - second);
-    // console.log(`time = ${time}`);
-    // console.log(`minute = ${minute} second = ${second} minRemain = ${minRemain} => ${this.secToDraw}`);
+    if (this.timeSocket != undefined) {
+      var time = new Date();
+      var year = this.timeSocket.getFullYear();
+      var mounth = this.timeSocket.getMonth();
+      var day = this.timeSocket.getDate();
+      var hours = this.timeSocket.getHours();
+      var minutes = this.timeSocket.getMinutes();
+      var seconds = this.timeSocket.getSeconds();
+      var newtime = new Date(year, mounth, day, hours, minutes, seconds);
+      console.log(`date => ${year} ${mounth} ${day} ${hours} ${minutes} ${seconds}`);
+      newtime.setSeconds(seconds + this.secToDrawSocket);
+      
+      var minutes = newtime.getMinutes();
+      var seconds = newtime.getSeconds();
+      console.log(`date => ${year} ${mounth} ${day} ${hours} ${minutes} ${seconds} => ${newtime.getTime()} - ${time.getTime()}`);
+      this.secToDraw = (newtime.getTime() - time.getTime()) / 1000;
+      if (this.secToDraw == 0)
+        this.secToDraw = 300;
+    }
+    console.log(`secToDraw => ${this.secToDraw}  ==> ${new Date()}`);
     return this.secToDraw;
   }
 
@@ -202,18 +222,30 @@ export class ServiceService {
     return this.roundNr;
   }
 
-  public changeRoute() {
+  public changeRoute(route: string = "") {
     var secToDraw = this.getSecToDraw();
-    // console.log(`onChangeRoute sec ${secToDraw} ===> ${name}`);
-    if (secToDraw > 195 || secToDraw < 2) {
-      this.router.navigateByUrl('/draw');
-    }
-    else if (secToDraw > 150) {
-      this.router.navigateByUrl('/results');
+    console.log(`onChangeRoute secToDraw ${secToDraw} (${this.secToDraw}) ===> route ->${route}<-`);
+    if (secToDraw == -1)
+      route = "intro";
+
+    if (route == "") {
+      if (secToDraw > 195 || secToDraw < 2) {
+        this.router.navigateByUrl('/draw');
+      }
+      else if (secToDraw > 150) {
+        this.router.navigateByUrl('/results');
+      }
+      else {
+        this.router.navigateByUrl('/intro');
+      }
     }
     else {
-      this.router.navigateByUrl('/intro');
+      this.router.navigateByUrl('/' + route);
     }
+  }
+  
+  public getColors() {
+    return ["bgpurple","bgred","bgyellow","bgblue","bgorange","bggreen","bgrose"];
   }
 
   public getMesagesRo() {
@@ -226,5 +258,84 @@ export class ServiceService {
 
   public getMesagesHr() {
     return introMessagesHr;
+  }
+
+  newSecToDrawHandler(data: any) {
+    if (data.Data) {
+      this.secToDrawSocket = data.Data.timer;
+      this.timeSocket = new Date();
+      this.subSecToDraw.next(this.secToDrawSocket);
+    }
+  }
+
+  newBingoRoundHandler(data: any) {
+    if (data.Data) {
+      this.roundNr = data.Data.RoundNumber;
+      this.subRoundNr.next(this.roundNr);
+    }
+  }
+  
+  newDrawQueHandler(data: any)  {
+    this.drawQue.length = 0;
+    if (data.Data) {
+      Object.keys(data.Data).forEach(element => {
+        if (element.startsWith('i'))
+        this.drawQue.push(data.Data[element].toString());
+      });
+      console.log(`newDrawQueHandler => brojevi ${this.drawQue}`)
+    }
+    this.subDrawQue.next(this.drawQue);
+  }
+
+  getRoundResults(roundNumber: any) {
+    let url_ = "http://xbet.spl.ba/xbet-office/api/services/app/Bingo/GetRoundResults?";
+    if (this.roundNr !== undefined)
+      url_ += "RoundNumber=" + encodeURIComponent("" + (this.roundNr - 1)) + "&";
+    url_ = url_.replace(/[?&]$/, "");
+
+    let options_: any = {
+      method: "get",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      })
+    };
+    let self = this;
+    self.http.get(url_, options_)
+      .map((response: any) => {
+        return self.processResponse(response);
+      })
+      .subscribe((result) => {
+        this.roundResults = result;
+        if (this.roundResults != null && this.roundResults.numbers != null) {
+          let numbers = this.roundResults.numbers.replace('{', '').replace('}', '');
+          let helper = numbers.split(',');
+          helper.pop();
+          helper.pop();
+          let results = new Array();
+          helper.forEach(function (item) {
+            let test = item.split(':');
+            results.push(test[1]);
+          });
+          results.pop();
+          self.drawQue = results;
+          self.subDrawQue.next(self.drawQue);
+         self.changeRoute();
+        }
+        else { 
+          self.drawQue = [];
+        }
+      });
+  }
+
+  processResponse(response: any) {
+    const responseText = response.text();
+    const status = response.status;
+    if (status === 200) {
+      let result200: BingoRoundDetailsDto = null;
+      let resultData200 = responseText === "" ? null : JSON.parse(responseText);
+      result200 = resultData200 ? BingoRoundDetailsDto.fromJS(resultData200) : new BingoRoundDetailsDto();
+      return result200;
+    }
   }
 }

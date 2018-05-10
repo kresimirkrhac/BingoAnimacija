@@ -7,7 +7,7 @@ export const routeStateTrigger = trigger('routeState', [
     group([
       query(':leave',[
         style({opacity: 0.4}),
-        animate('400ms ease-out', style({opacity: 0})),
+        animate('0ms ease-out', style({opacity: 0})),
       ], {optional: true}),
       query(':enter', [
         style({ opacity: 0 }),

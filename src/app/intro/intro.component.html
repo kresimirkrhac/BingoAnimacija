@@ -7,13 +7,20 @@
     </div>
 </div>
 <div class="first7" *ngIf="first">
-    <img id="i01" class="st7" src="./assets/images/01.png" [@fromLeftAnim]="imageStat[0]">
-    <img id="i02" class="st7" src="./assets/images/02.png" [@fromLeftAnim]="imageStat[1]">
-    <img id="i03" class="st7" src="./assets/images/03.png" [@fromLeftAnim]="imageStat[2]">
-    <img id="i04" class="st7" src="./assets/images/04.png" [@fromLeftAnim]="imageStat[3]">
-    <img id="i05" class="st7" src="./assets/images/05.png" [@fromLeftAnim]="imageStat[4]">
-    <img id="i06" class="st7" src="./assets/images/06.png" [@fromLeftAnim]="imageStat[5]">
-    <img id="i07" class="st7" src="./assets/images/07.png" [@fromLeftAnim]="imageStat[6]">
+    <!-- <img id="i01" class="st7" src="./assets/images/01.png" [@fromLeftAnim]="imageStat[0]"> -->
+    <div id="i01" class="img st7 bgred" [@fromLeftAnim]="imageStat[0]">1</div>
+    <!-- <img id="i02" class="st7" src="./assets/images/02.png" [@fromLeftAnim]="imageStat[1]"> -->
+    <div id="i02" class="img st7 bgyellow" [@fromLeftAnim]="imageStat[1]">2</div>
+    <!-- <img id="i03" class="st7" src="./assets/images/03.png" [@fromLeftAnim]="imageStat[2]"> -->
+    <div id="i03" class="img st7 bgblue" [@fromLeftAnim]="imageStat[2]">3</div>
+    <!-- <img id="i04" class="st7" src="./assets/images/04.png" [@fromLeftAnim]="imageStat[3]"> -->
+    <div id="i04" class="img st7 bgorange" [@fromLeftAnim]="imageStat[3]">4</div>
+    <!-- <img id="i05" class="st7" src="./assets/images/05.png" [@fromLeftAnim]="imageStat[4]"> -->
+    <div id="i05" class="img st7 bggreen" [@fromLeftAnim]="imageStat[4]">5</div>
+    <!-- <img id="i06" class="st7" src="./assets/images/06.png" [@fromLeftAnim]="imageStat[5]"> -->
+    <div id="i06" class="img st7 bgrose" [@fromLeftAnim]="imageStat[5]">6</div>
+    <!-- <img id="i07" class="st7" src="./assets/images/07.png" [@fromLeftAnim]="imageStat[6]"> -->
+    <div id="i07" class="img st7 bgpurple" [@fromLeftAnim]="imageStat[6]">7</div>
 </div>
 <div class="messages" *ngIf="firstMessages" @firstMessages>
     <div class="middleColumn" id="firstMessageRow1">{{messages[0]}}</div>
@@ -34,34 +41,62 @@
     <div id="field3" class="field"></div>
     <div id="field4" class="field"></div>
     <div id="field5" class="field"></div>
-    <img id="i08" class="nd7" src="./assets/images/08.png">
-    <img id="i09" class="nd7" src="./assets/images/09.png">
-    <img id="i10" class="nd7" src="./assets/images/10.png">
-    <img id="i11" class="nd7" src="./assets/images/11.png">
-    <img id="i12" class="nd7" src="./assets/images/12.png">
-    <img id="i13" class="nd7" src="./assets/images/13.png">
-    <img id="i14" class="nd7" src="./assets/images/14.png">
-    <img id="i15" class="td7" src="./assets/images/15.png">
-    <img id="i16" class="td7" src="./assets/images/16.png">
-    <img id="i17" class="td7" src="./assets/images/17.png">
-    <img id="i18" class="td7" src="./assets/images/18.png">
-    <img id="i19" class="td7" src="./assets/images/19.png">
-    <img id="i20" class="td7" src="./assets/images/20.png">
-    <img id="i21" class="td7" src="./assets/images/21.png">
-    <img id="i22" class="th7" src="./assets/images/22.png">
-    <img id="i23" class="th7" src="./assets/images/23.png">
-    <img id="i24" class="th7" src="./assets/images/24.png">
-    <img id="i25" class="th7" src="./assets/images/25.png">
-    <img id="i26" class="th7" src="./assets/images/26.png">
-    <img id="i27" class="th7" src="./assets/images/27.png">
-    <img id="i28" class="th7" src="./assets/images/28.png">
-    <img id="i29" class="ff7" src="./assets/images/29.png">
-    <img id="i30" class="ff7" src="./assets/images/30.png">
-    <img id="i31" class="ff7" src="./assets/images/31.png">
-    <img id="i32" class="ff7" src="./assets/images/32.png">
-    <img id="i33" class="ff7" src="./assets/images/33.png">
-    <img id="i34" class="ff7" src="./assets/images/34.png">
-    <img id="i35" class="ff7" src="./assets/images/35.png">
+    <!-- <img id="i08" class="nd7" src="./assets/images/08.png"> -->
+    <div id="i08" class="img nd7 bgred">8</div>
+    <!-- <img id="i09" class="nd7" src="./assets/images/09.png"> -->
+    <div id="i16" class="img nd7 bgyellow">9</div>
+    <!-- <img id="i10" class="nd7" src="./assets/images/10.png"> -->
+    <div id="i10" class="img nd7 bgblue">10</div>
+    <!-- <img id="i11" class="nd7" src="./assets/images/11.png"> -->
+    <div id="i11" class="img nd7 bgorange">11</div>
+    <!-- <img id="i12" class="nd7" src="./assets/images/12.png"> -->
+    <div id="i12" class="img nd7 bggreen">12</div>
+    <!-- <img id="i13" class="nd7" src="./assets/images/13.png"> -->
+    <div id="i13" class="img nd7 bgrose">13</div>
+    <!-- <img id="i14" class="nd7" src="./assets/images/14.png"> -->
+    <div id="i14" class="img nd7 bgpurple">14</div>
+    <!-- <img id="i15" class="td7" src="./assets/images/15.png"> -->
+    <div id="i15" class="img td7 bgred">15</div>
+    <!-- <img id="i16" class="td7" src="./assets/images/16.png"> -->
+    <div id="i16" class="img td7 bgyellow" >16</div>
+    <!-- <img id="i17" class="td7" src="./assets/images/17.png"> -->
+    <div id="i17" class="img td7 bgblue">17</div>
+    <!-- <img id="i18" class="td7" src="./assets/images/18.png"> -->
+    <div id="i18" class="img td7 bgorange">18</div>
+    <!-- <img id="i19" class="td7" src="./assets/images/19.png"> -->
+    <div id="i19" class="img td7 bggreen">19</div>
+    <!-- <img id="i20" class="td7" src="./assets/images/20.png"> -->
+    <div id="i20" class="img td7 bgrose">20</div>
+    <!-- <img id="i21" class="td7" src="./assets/images/21.png"> -->
+    <div id="i21" class="img td7 bgpurple">21</div>
+    <!-- <img id="i22" class="th7" src="./assets/images/22.png"> -->
+    <div id="i22" class="img th7 bgred">22</div>
+    <!-- <img id="i23" class="th7" src="./assets/images/23.png"> -->
+    <div id="i23" class="img th7 bgyellow" >23</div>
+    <!-- <img id="i24" class="th7" src="./assets/images/24.png"> -->
+    <div id="i24" class="img th7 bgblue">24</div>
+    <!-- <img id="i25" class="th7" src="./assets/images/25.png"> -->
+    <div id="i25" class="img th7 bgorange">25</div>
+    <!-- <img id="i26" class="th7" src="./assets/images/26.png"> -->
+    <div id="i26" class="img th7 bggreen">26</div>
+    <!-- <img id="i27" class="th7" src="./assets/images/27.png"> -->
+    <div id="i27" class="img th7 bgrose">27</div>
+    <!-- <img id="i28" class="th7" src="./assets/images/28.png"> -->
+    <div id="i28" class="img th7 bgpurple">28</div>
+    <!-- <img id="i29" class="ff7" src="./assets/images/29.png"> -->
+    <div id="i29" class="img ff7 bgred">29</div>
+    <!-- <img id="i30" class="ff7" src="./assets/images/30.png"> -->
+    <div id="i30" class="img ff7 bgyellow" >30</div>
+    <!-- <img id="i31" class="ff7" src="./assets/images/31.png"> -->
+    <div id="i31" class="img ff7 bgblue">31</div>
+    <!-- <img id="i32" class="ff7" src="./assets/images/32.png"> -->
+    <div id="i32" class="img ff7 bgorange">32</div>
+    <!-- <img id="i33" class="ff7" src="./assets/images/33.png"> -->
+    <div id="i33" class="img ff7 bggreen">33</div>
+    <!-- <img id="i34" class="ff7" src="./assets/images/34.png"> -->
+    <div id="i34" class="img ff7 bgrose">34</div>
+    <!-- <img id="i35" class="ff7" src="./assets/images/35.png"> -->
+    <div id="i35" class="img ff7 bgpurple">35</div>
     <p id="n06" class="n1">10.000</p>
     <p id="n07" class="n1">7.500</p>
     <p id="n08" class="n2">5.000</p>
@@ -160,7 +195,7 @@
     <div id="secRow3">{{messages[38]}}</div>
 </div>
 <div class="messages" *ngIf="clock">
-    <div id="clock-title"></div>
+    <!-- <div id="clock-title"></div> -->
     <div id="clock">{{secToDraw}}</div>
 </div>
 <div id="last" *ngIf="last" @last>

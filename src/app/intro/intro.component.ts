@@ -38,7 +38,7 @@ import {  fromLeftAnimTrigger,
     lastTrigger
    ]
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, OnDestroy {
   secToDraw: number;
   minToShow: number;
   secToShow: string;
@@ -62,22 +62,54 @@ export class IntroComponent implements OnInit {
   halfMin: boolean = false;
   clock: boolean = false;
   last: boolean = false;
+  secToDrawSub: Subscription;
+  roundNrSub: Subscription;
+
 
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
     this.secToDraw = this.service.getSecToDraw();
-    this.roundNr = this.service.getRoundNr();
-    this.messages = this.service.getMesagesHr();
-    if (this.secToDraw > 150)
-      this.service.changeRoute();
-    else {
-      for (var i = 0; i < 35; i++) {
-        this.imageStat.push('iv');
-      }
-      const drawTime = Date.now() + this.secToDraw * 1000;
-      this.intro(drawTime);
+    console.log(`secToDraw ${this.secToDraw}`);
+    if (this.secToDraw == -1) {
+      this.secToDrawSub = this.service.subSecToDraw.subscribe(
+        (sec: number) => {
+          console.log(`stigla subscribana sekunda ${sec}`)
+          this.secToDraw = sec;
+          if (this.secToDraw > 150)
+            this.service.changeRoute();
+          else {
+            console.log(`startam animaciju`);            
+            this.startAnim();
+          }
+        }
+      );
     }
+    else {
+      console.log(`startam animaciju`);
+      this.startAnim();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.secToDrawSub)
+      this.secToDrawSub.unsubscribe();
+    if (this.roundNrSub)
+    	this.roundNrSub.unsubscribe();
+  }
+
+  private startAnim() {
+    const drawTime = Date.now() + this.secToDraw * 1000;
+    for (var i = 0; i < 35; i++) {
+      this.imageStat.push('iv');
+    }
+    this.messages = this.service.getMesagesHr();
+    this.roundNr = this.service.getRoundNr();
+    if (this.roundNr == -1)
+      this.roundNrSub = this.service.subRoundNr.subscribe((roundNr: number) => { this.roundNr = roundNr + 1; });
+    else
+      this.roundNr++;
+    this.intro(drawTime);
   }
 
   private intro(drawTime: number) {
@@ -94,10 +126,11 @@ export class IntroComponent implements OnInit {
       },990);
     }
     else if (this.secToDraw == 1) {
-      this.service.init();
+      console.log(`secToDraw = ${this.secToDraw} => ${new Date()}`);
       setTimeout(() => {
-        this.service.changeRoute();
-      },(drawTime - now) % 1000)
+        console.log(`ide changeRoute secToDraw = ${this.secToDraw}`);
+        this.service.changeRoute("draw");
+      }, this.secToDraw * 1000);
     }
   }
 
@@ -290,10 +323,14 @@ export class IntroComponent implements OnInit {
       case 12:
         if (this.clock != true)
           this.clock = true;
+        if (this.service.drawQue.length != 0)
+          this.service.drawQue = [];
         break;
       case 6:
         if (this.clock != true)
           this.clock = true;
+        if (this.service.drawQue.length != 0)
+          this.service.drawQue = [];
         break;
     }
     // console.log(` anim this.secToDraw ${this.secToDraw} => ${Date.now() % 100000}`);
