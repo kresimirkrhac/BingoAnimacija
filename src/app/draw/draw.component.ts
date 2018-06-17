@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { AnimationBuilder, style, animate, animation } from '@angular/animations'
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -12,6 +13,7 @@ import { fadeInTrigger, fadeInTriggerBall } from './animations';
   animations: [ fadeInTrigger, fadeInTriggerBall ]
 })
 export class DrawComponent implements OnInit, OnDestroy {
+  @ViewChildren('draw') draw: ElementRef;
   nrBalls = 35;
   roundNr: number;
   index: number;
@@ -34,11 +36,10 @@ export class DrawComponent implements OnInit, OnDestroy {
   roundNrSub: Subscription;
   drawQueSub: Subscription;
   
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private builder: AnimationBuilder) { }
   
   ngOnInit() {
     var secToDraw = this.service.getSecToDraw();
-    console.log(`secToDraw ${secToDraw} => ${new Date()}`);
     if (secToDraw == -1) {
       this.secToDrawSub = this.service.subSecToDraw.subscribe(
         (sec: number) => { this.startAnim(sec) }
@@ -71,6 +72,18 @@ export class DrawComponent implements OnInit, OnDestroy {
     this.colorsci = [];
   }
 
+  private animateEl(element: any, osX: string, osY: string) {
+    var animation = this.builder.build([
+      style({
+        transform: 'translate(osX, osY), scale(10)',
+        opacity: 1
+      }),
+      animate(300)
+    ]);
+    var player = animation.create(element);
+    player.play();
+  }
+
   private startAnim(secToDraw: number) {
     if (secToDraw >= 2 && secToDraw < 195) {
       this.service.changeRoute();
@@ -79,9 +92,7 @@ export class DrawComponent implements OnInit, OnDestroy {
       this.roundNr = this.service.getRoundNr();
       this.roundNrSub = this.service.subRoundNr.subscribe(
         (roundNr: number) => { 
-          this.roundNr = roundNr;
-          if (this.drawQue.length == 0)
-            this.service.getRoundResults(this.roundNr);
+          this.roundNr = roundNr - 1;
         }
       );
       // this.drawFrame = "25";
@@ -91,14 +102,19 @@ export class DrawComponent implements OnInit, OnDestroy {
       for (let col of this.colors) {
         this.colorsc.push(`${col}c`);
         this.colorsci.push(`${col}ci`);
-        console.log(`${this.colorsc} -> ${this.colorsci} `);
       }
       this.messages = this.service.getMesagesHr();
       this.drawQue = this.service.getdrawQue();
       if (this.drawQue.length == 0) {
         this.drawQueSub = this.service.subDrawQue.subscribe(
           (drawQue: number[]) => {
-            this.drawQue = drawQue; 
+            this.drawQue = drawQue;
+            if (this.drawQue.length == 0) 
+              this.service.getRoundResults(this.roundNr);
+              
+            secToDraw = this.service.getSecToDraw();
+            if (secToDraw < 0)
+              secToDraw += 300;
             this.startDraw(secToDraw);           
           }
         );
@@ -135,9 +151,7 @@ export class DrawComponent implements OnInit, OnDestroy {
       if (this.index > 0)
         this.fadeInStatc[this.index-1] = false;
       this.fadeInStatc[this.index] = true;
-      console.log(` fadeInStatc0 = ${this.fadeInStatc[0]}, fadeInStatc1 = ${this.fadeInStatc[1]}`);
       // this.ballDraw = this.drawQue[(this.nrBalls - nrBallsToDraw) + second];
-      // console.log(`ball ${(this.nrBalls - nrBallsToDraw) + second + 1} ${Date.now() % 100000}`);
       // this.drawExpl = "draw";
       // this.drawFrame = "00";
       // this.draw();

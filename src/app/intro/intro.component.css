@@ -391,6 +391,60 @@
 #eighthMessagesRow5 {
     font-size: 3vw;
 }
+#ninthMessagesRow1 {
+    font-size: 3vw;
+    margin: 4vw auto;
+}
+.ninthMessagesRows {
+    display: grid;
+    grid-template-columns: 1fr 5vw 1fr 2fr;
+    height: 5vw;
+    font-size: 2.5vw;
+    line-height: 4.8vw;
+    margin: 1vw 3vw;
+}
+.messagesTwo {
+    display: grid;
+    grid-template-columns: 2fr 5fr 5fr 1.55fr;
+    font-family: 'Anton', sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+#ninthMessagesRow1 {
+    grid-column: 2 / span 2;
+    text-align: center;
+}
+.middleTwoColumn {
+    grid-column: 2;
+    text-align: center;
+}
+.middleThreeColumn {
+    grid-column: 3;
+    text-align: center;
+}
+.ninthSpan {
+    position: relative;
+    font-size: 2vw;
+    line-height: 4.9vw;
+}
+#tenthMessagesRow1 {
+    font-size: 3vw;
+    /* margin-top: 0.2vw auto; */
+}
+.tenthMessagesRows {
+    display: grid;
+    grid-template-columns: 1fr 5vw 1fr 2fr;
+    height: 5vw;
+    font-size: 2.5vw;
+    line-height: 4.8vw;
+    margin: 0.4vw 20vw;
+}
+.tenthSpan {
+    position: relative;
+    font-size: 2vw;
+    line-height: 4.9vw;
+}
 #second {
     display: grid;
     grid-template-rows: 1.8fr 2fr 1fr;

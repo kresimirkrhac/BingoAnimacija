@@ -22,7 +22,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     var secToDraw = this.service.getSecToDraw();
-    console.log(secToDraw);
     if (secToDraw == -1) {
       this.secToDrawSub = this.service.subSecToDraw.subscribe(
         (sec: number) => { this.startAnim(sec) }
@@ -48,20 +47,19 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.roundNr = this.service.getRoundNr();
     if (this.roundNr == -1) {
       this.roundNrSub = this.service.subRoundNr.subscribe((roundNr: number) => {
-        this.roundNr = roundNr;
-        if (this.drawQue.length == 0)
-          this.service.getRoundResults(this.roundNr);
+        this.roundNr = roundNr - 1;
       });
     }
-    else if (this.drawQue.length == 0)
-      this.service.getRoundResults(this.roundNr);
+
+    this.drawQue = this.service.getdrawQue();
     this.colors = this.service.getColors();
     this.messages = this.service.getMesagesHr();
-    this.drawQue = this.service.getdrawQue();
     if (this.drawQue.length == 0) {
       this.drawQueSub = this.service.subDrawQue.subscribe(
         (drawQue: number[]) => {
-          this.drawQue = drawQue; 
+          this.drawQue = drawQue;
+          if (this.drawQue.length == 0)
+            this.service.getRoundResults(this.roundNr);
           this.changeRoute(secToDraw);           
         }
       );

@@ -37,8 +37,8 @@ export const fadeInTrigger = trigger('fadeIn', [
 ]);
 export const fadeInTriggerBall = trigger('fadeInBall', [
   transition(':enter', [
+    // rotate(35deg) rotateY(62deg) scale(0.7) translateX(25.5vw) skew(-7deg, 7deg)
     group([
-      // style({ transform: 'scale(0.1) translate(0,0)'}),
       animate('400ms ease-out', keyframes([
         style({
           opacity: 0.5,
@@ -60,7 +60,31 @@ export const fadeInTriggerBall = trigger('fadeInBall', [
           transform: 'scale(1)  translate(0,0)',
           offset: 1
         })
-      ]))
+      ])),
+      query('.circle-inner', [
+        animate('400ms ease-out', keyframes([
+          style({
+            opacity: 0,
+            transform: 'rotate(35deg) rotateY(62deg) scale(0.5) translateX(22.5vw) skew(-7deg, 7deg)',
+            offset: 0
+          }),
+          style({
+            opacity: 0,
+            transform: 'rotate(35deg) rotateY(62deg) scale(0.4) translateX(22.5vw) skew(-7deg, 7deg)',
+            offset: 0.65
+          }),
+          style({
+            opacity: 1,
+            transform: 'rotate(35deg) rotateY(62deg) scale(0.4) translateX(22.5vw) skew(-7deg, 7deg)',
+            offset: 0.66
+          }),
+          style({
+            opacity: 1,
+            transform: 'rotate(0deg) rotateY(0deg) scale(1) translateX(0vw) skew(0deg, 0deg)',
+            offset: 1
+          })
+        ]))
+      ])
     ])
   ])
 ]);

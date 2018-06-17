@@ -271,7 +271,7 @@ img, .img {
     font-weight: bold;
     line-height: 15vw;
     text-align: center;
-    color: rgb(245, 245, 245);
+    /* color: rgb(245, 245, 245); */
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5), -1px -1px 5px rgba(0,0,0,0.5);
     box-shadow: 2px 2px 4px 0px rgba(255, 255, 255, 0.8) inset, -2px -2px 4px 0px rgba(255, 255, 255, 0.8), -2px -2px 8px 1px rgba(0, 0, 0, 0.8) inset, 2px 2px 8px 2px rgba(0, 0, 0, 0.8);
     /* transform: rotateX(13deg) rotateY(284deg) rotateZ(0deg) scale(0.77) translate(51vw,4vw) skew(51deg); */

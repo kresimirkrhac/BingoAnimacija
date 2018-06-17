@@ -1,8 +1,10 @@
-import { Injectable, Injector, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Inject, Injectable, Injector } from '@angular/core';
 import { Http } from '@angular/http';
-import { BingoRoundDetailsDto } from '../shared/BingoRoundDetailsDto';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
+import { BingoRoundDetailsDto } from '../shared/BingoRoundDetailsDto';
+import { NumberStatistic } from "./models/NumberStatistic";
+import { ColorStatistic } from "./models/ColorStatistic";
 
 const introMessagesRo = [
   /*  0 */  "Ai şanse să câştigi",
@@ -56,7 +58,9 @@ const introMessagesRo = [
   /* 48 */  "Billa",
   /* 49 */  "Timp de pariere rămas",
   /* 50 */  "Următor evenimentului",
-  /* 51 */  "RĂMASE"  
+  /* 51 */  "RĂMASE",
+  /* 52 */  "CELE MAI BUNE JOCURI",
+  /* 53 */  "CULORI CELE MAI JUCATE"
 ];
 const introMessagesEn = [
   /*  0 */  "You have a chance to win",
@@ -110,14 +114,16 @@ const introMessagesEn = [
   /* 48 */  "Number",
   /* 49 */  "Betting time left",
   /* 50 */  "Next Event",
-  /* 51 */  "REMAINING"
+  /* 51 */  "REMAINING",
+  /* 52 */  "MOST PLAYED NUMBERS",
+  /* 53 */  "MOST PLAYED COLORS"
 ];
 const introMessagesHr = [
   /*  0 */  "Imate priliku za dobitak",
   /*  1 */  "do izvlačenja",
   /*  2 */  "ZADNJEG",
   /*  3 */  "BROJA",
-  /*  4 */  "Sve za samo 2 kn!",
+  /*  4 */  "Sve za samo 2 km!",
   /*  5 */  "Ako se svi vaši brojevi",
   /*  6 */  "izvuku u prvih 6",
   /*  7 */  "KOEFICIENT OKLADE",
@@ -133,7 +139,7 @@ const introMessagesHr = [
   /* 17 */  "JEDNOSTAVNE OKLADE",
   /* 18 */  "ODABERITE 6 BROJEVA!",
   /* 19 */  "MINIMALNA UPLATA ZA LISTIĆ:",
-  /* 20 */  "2 KN",
+  /* 20 */  "2 KM",
   /* 21 */  "POVEĆAJTE",
   /* 22 */  "ŠANSE",
   /* 23 */  "IGRANJEM",
@@ -141,9 +147,9 @@ const introMessagesHr = [
   /* 25 */  "SISTEMSKA OKLADA",
   /* 26 */  "Izaberite više od 6 sretnih brojeva, do najviše 10!",
   /* 27 */  "Fixne oklade na sistemu:",
-  /* 28 */  "0.10 kn, 0.50 kn, 1 kn ili 2 kn",
+  /* 28 */  "0.10 km, 0.50 km, 1 km ili 2 km",
   /* 29 */  "Minimalna uplata po listicu:",
-  /* 30 */  "2 kn",
+  /* 30 */  "2 km",
   /* 31 */  "Sistemska oklada - moguće kombinacije",
   /* 32 */  " 7 odigranih brojeva -   7 kombinacija",
   /* 33 */  " 8 odigranih brojeva -  28 kombinacija",
@@ -164,7 +170,9 @@ const introMessagesHr = [
   /* 48 */  "Broj",
   /* 49 */  "Preostalo vrijeme klađenja",
   /* 50 */  "Slijedeći događaj",
-  /* 51 */  "OSTALA"
+  /* 51 */  "OSTALA",
+  /* 52 */  "NAJVIŠE IGRANI BROJEVI",
+  /* 53 */  "NAJVIŠE IGRANE BOJE"
 ];
 
 @Injectable()
@@ -179,6 +187,8 @@ export class ServiceService {
   subDrawQue: Subject<number[]>;
   http: Http;
   roundResults: BingoRoundDetailsDto;
+  numberStatistic: NumberStatistic[] = [];
+  colorStatistic: ColorStatistic[] = [];
 
   constructor(
     injector: Injector,
@@ -204,17 +214,15 @@ export class ServiceService {
       var minutes = this.timeSocket.getMinutes();
       var seconds = this.timeSocket.getSeconds();
       var newtime = new Date(year, mounth, day, hours, minutes, seconds);
-      console.log(`date => ${year} ${mounth} ${day} ${hours} ${minutes} ${seconds}`);
       newtime.setSeconds(seconds + this.secToDrawSocket);
       
       var minutes = newtime.getMinutes();
       var seconds = newtime.getSeconds();
-      console.log(`date => ${year} ${mounth} ${day} ${hours} ${minutes} ${seconds} => ${newtime.getTime()} - ${time.getTime()}`);
       this.secToDraw = (newtime.getTime() - time.getTime()) / 1000;
       if (this.secToDraw == 0)
         this.secToDraw = 300;
     }
-    console.log(`secToDraw => ${this.secToDraw}  ==> ${new Date()}`);
+    // console.log(`secToDraw => ${this.secToDraw}  ==> ${new Date()}`);
     return this.secToDraw;
   }
 
@@ -224,7 +232,7 @@ export class ServiceService {
 
   public changeRoute(route: string = "") {
     var secToDraw = this.getSecToDraw();
-    console.log(`onChangeRoute secToDraw ${secToDraw} (${this.secToDraw}) ===> route ->${route}<-`);
+    // console.log(`onChangeRoute secToDraw ${secToDraw} (${this.secToDraw}) ===> route ->${route}<-`);
     if (secToDraw == -1)
       route = "intro";
 
@@ -282,9 +290,62 @@ export class ServiceService {
         if (element.startsWith('i'))
         this.drawQue.push(data.Data[element].toString());
       });
-      console.log(`newDrawQueHandler => brojevi ${this.drawQue}`)
     }
     this.subDrawQue.next(this.drawQue);
+  }
+  newBingoNumberStatisticHandler(data: any) {
+    this.numberStatistic = [];
+    if (data.Data !== undefined && data.Data.length > 0) {
+      for (var i = 0; i < data.Data.length; i++) {
+        var numStat        = new(NumberStatistic);
+        numStat.Number     = data.Data[i].Number;
+        numStat.Count      = data.Data[i].Count;
+        numStat.Percentage = data.Data[i].Percentage;
+        this.numberStatistic.push(numStat);
+      }
+    }
+  }
+  getBingoNumberStatistic(mode: boolean) {
+    var numbStat: NumberStatistic[] = [];
+    if (mode) {
+      for(var i = this.numberStatistic.length/2; i < this.numberStatistic.length; i++) {
+        numbStat.push(this.numberStatistic[i]);
+      }
+    }
+    else {
+      for(var i = 0; i < this.numberStatistic.length/2; i++) {
+        numbStat.push(this.numberStatistic[i]);
+      }
+    }
+    return numbStat;
+  }
+
+  colorIndex(colorName: string): number {
+    var colorNumber = 0;
+    if (colorName == "Purple")   return 0;
+    else if (colorName == "Red") return 1;
+    else if (colorName == "Yellow") return 2;
+    else if (colorName == "Blue") return 3;
+    else if (colorName == "Orange") return 4;
+    else if (colorName == "Green") return 5;
+    else if (colorName == "Pink") return 6;
+    return 0;
+  }
+  newBingoColorStatisticHandler(data: any) {
+    this.colorStatistic = [];
+    if (data.Data !== undefined && data.Data.length > 0) {
+      for (var i = 0; i < data.Data.length; i++) {
+        var colStat        = new(ColorStatistic);
+        colStat.Color      = data.Data[i].Color;
+        colStat.Number     = this.colorIndex(colStat.Color);
+        colStat.Count      = data.Data[i].Count;
+        colStat.Percentage = data.Data[i].Percentage;
+        this.colorStatistic.push(colStat);
+      }
+    }
+  }
+  getBingoColorStatistic() {
+    return this.colorStatistic;
   }
 
   getRoundResults(roundNumber: any) {

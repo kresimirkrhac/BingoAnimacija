@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="containter">
-    <div id="draw">
+    <div id="draw" #draw>
         <div *ngIf="fadeInStatc[0]" class="circle" [ngClass]="colorsc[drawQue[index] % 7]" [@fadeInBall]="fadeInStatc[index]">
             <div class="circle-inner" [ngClass]="colorsci[drawQue[index] % 7]">{{drawQue[index]}}</div> 
         </div>

@@ -182,6 +182,25 @@
         {{messages[35]}}
     </div>
 </div>
+<div class="messagesTwo" *ngIf="ninthMessages" @ninthMessages>
+    <div id="ninthMessagesRow1">{{messages[52]}}</div>
+    <div class="middleTwoColumn">        
+        <div class="ninthMessagesRows" *ngFor="let nr of numberStatistic1; let i = index">
+            <span>{{i+1}}.</span><span class="img ninthSpan" [ngClass]="colors[nr.Number % 7]">{{nr.Number}}</span><span>=</span><span>{{nr.Percentage}} %</span>
+        </div>
+    </div>
+    <div class="middleThreeColumn">
+        <div class="ninthMessagesRows" *ngFor="let nr of numberStatistic2; let i = index">
+            <span>{{i+numberStatistic1.length + 1}}.</span><span class="img ninthSpan" [ngClass]="colors[nr.Number % 7]">{{nr.Number}}</span><span>=</span><span>{{nr.Percentage}} %</span>
+        </div>
+    </div>
+</div>
+<div class="messages" *ngIf="tenthMessages" @tenthMessages>
+    <div class="middleColumn" id="tenthMessagesRow1">{{messages[53]}}</div>
+    <div class="middleColumn tenthMessagesRows" *ngFor="let nr of colorStatistic; let i = index">
+        <span>{{i+1}}.</span><span class="img tenthSpan" [ngClass]="colors[nr.Number % 7]"></span><span>=</span><span>{{nr.Percentage}} %</span>
+    </div>
+    </div>
 <div class="minute" *ngIf="oneMin" @minute>
     <div class="leftBlock">1</div>
     <div class="minRow1">{{messages[45]}}</div>

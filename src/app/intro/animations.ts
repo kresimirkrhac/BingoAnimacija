@@ -663,6 +663,141 @@ export const eighthMessagesTrigger = trigger('eighthMessages', [
     query('#eighthMessagesRow1,#eighthMessagesRow2', animate('500ms ease-out',style({ opacity: 0 })))
   ])
 ])
+export const ninthMessagesTrigger = trigger('ninthMessages', [
+  transition(':enter', [
+    query('#ninthMessagesRow1', style({ opacity: 0 })),
+    query('.middleTwoColumn > .ninthMessagesRows', style({ opacity: 0, transform: 'translateX(-10vw)' })),
+    query('.middleThreeColumn > .ninthMessagesRows', style({ opacity: 0, transform: 'translateX(10vw)' })),
+    group([
+      query('#ninthMessagesRow1',
+        animate('1000ms ease-in', style({
+          opacity: 1
+        }))
+      ),
+      query('.middleTwoColumn > .ninthMessagesRows', [
+        stagger(160, [
+          animate('200ms ease-out', keyframes([
+            style({
+              opacity: 1,
+              transform: 'translateX(-6vw)',
+              offset: 0.33
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateX(-2vw)',
+              offset: 0.66
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateX(0)',
+              offset: 1
+            })
+          ]))
+        ])
+      ]),
+      query('.middleThreeColumn > .ninthMessagesRows', [
+        stagger(160, [
+          animate('200ms 240ms ease-out', keyframes([
+            style({
+              opacity: 1,
+              transform: 'translateX(6vw)',
+              offset: 0.33
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateX(2vw)',
+              offset: 0.66
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateX(0)',
+              offset: 1
+            })
+          ]))
+        ])
+      ]),
+    ])
+  ]),
+  transition(':leave', [
+    group([
+      query('#ninthMessagesRow1',
+        animate('500ms ease-in', style({
+          opacity: 0
+        }))
+      ),
+      query('.middleTwoColumn > .ninthMessagesRows', [
+        stagger(-80, [
+          animate('100ms ease-out', style({
+            opacity: 0,
+            transform: 'translateX(-6vw)',
+          }))
+        ])
+      ]),
+      query('.middleThreeColumn > .ninthMessagesRows', [
+        stagger(-80, [
+          animate('100ms 40ms ease-out', style({
+            opacity: 0,
+            transform: 'translateX(6vw)',
+          }))
+        ])
+      ]),
+    ])
+  ])
+]);
+
+export const tenthMessagesTrigger = trigger('tenthMessages', [
+  transition(':enter', [
+    query('#tenthMessagesRow1', style({ opacity: 0, transform: 'translateY(-100%)' })),
+    query('.tenthMessagesRows', style({ opacity: 0, transform: 'translateY(10vw)' })),
+    group([
+      query('#tenthMessagesRow1',
+        animate('1000ms ease-in', style({
+          opacity: 1,
+          transform: 'translateY(0)'
+        }))
+      ),
+      query('.tenthMessagesRows', [
+        stagger(160, [
+          animate('200ms ease-out', keyframes([
+            style({
+              opacity: 1,
+              transform: 'translateY(6vw)',
+              offset: 0.33
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateY(2vw)',
+              offset: 0.66
+            }),
+            style({
+              opacity: 1,
+              transform: 'translateY(0)',
+              offset: 1
+            })
+          ]))
+        ])
+      ]),
+    ])
+  ]),
+  transition(':leave', [
+    group([
+      query('#tenthMessagesRow1',
+        animate('500ms ease-out', style({
+          opacity: 0,
+          transform: 'translateY(-100%)'
+        }))
+      ),
+      query('.tenthMessagesRows', [
+        stagger(-60, [
+          animate('80ms ease-out', style({
+            opacity: 0,
+            transform: 'translateY(10vw)',
+          }))
+        ])
+      ]),
+    ])
+  ])
+]);
 
 export const halfminuteTrigger = trigger('halfminute', [
   transition(':enter', [

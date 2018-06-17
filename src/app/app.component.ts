@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   WsMessage = {
     subscriberAdd: 1,
-    officeNewMessage: 2,
+    officeNewMessage : 2,
     officeRefreshMessage: 3,
     ticketAuthNew: 4,
     ticketAuthResolved: 5,
@@ -37,9 +37,13 @@ export class AppComponent implements OnInit, OnDestroy {
     bingoOnBingo: 9,
     bingoTimer: 10,
     bingoRound: 11,
-
-  }
-
+    raceTimer: 12,
+    raceOnRace: 13,
+    raceRound: 14,
+    raceSubscriberAdd: 15,
+    bingoNumberStatistic: 16,
+    bingoColorStatistic: 17
+}
   //bingo
   bingoTimer: number = 0;
 
@@ -64,19 +68,24 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         //handle new bingo round
         if (data.Message == self.WsMessage.bingoTimer) {
-          console.log(`stigao bingoTimer ==> ${data.Data.timer} ${new Date()}`)
           this.service.newSecToDrawHandler(data);
           if (data.Data.timer == 150)
             this.service.changeRoute("intro");
           // this.service.changeRoute();
         }
         else if (data.Message == self.WsMessage.bingoRound) {
-          console.log(`stigao bingoRound ${data.Data.RoundNumber}`)
           this.service.newBingoRoundHandler(data);
         }
         else if (data.Message == self.WsMessage.bingoOnBingo) {
-          console.log(`stigao bingoOnBingo`)
           this.service.newDrawQueHandler(data);
+          // this.service.changeRoute();
+        }
+        else if (data.Message == self.WsMessage.bingoNumberStatistic) {
+          this.service.newBingoNumberStatisticHandler(data);
+          // this.service.changeRoute();
+        }
+        else if (data.Message == self.WsMessage.bingoColorStatistic) {
+          this.service.newBingoColorStatisticHandler(data);
           // this.service.changeRoute();
         }
       });
